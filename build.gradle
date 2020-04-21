@@ -1,0 +1,52 @@
+ plugins {
+    id "com.github.spotbugs" version "3.0.0"
+   id "checkstyle"
+ }
+
+apply plugin: 'application'
+apply plugin: 'jacoco'
+
+
+mainClassName = 'main.java.Main'
+
+
+
+repositories {
+    jcenter()
+}
+
+
+dependencies {
+    compile 'junit:junit:4.12'
+    compile files('cls/')
+    implementation 'junit:junit:4.12'
+}
+
+
+
+
+ apply plugin: 'checkstyle'
+ checkstyle {
+   // Keep checkstyle a little quieter
+  ignoreFailures = true
+  showViolations = false
+ }
+
+ tasks.withType(Checkstyle) {
+   reports {
+     html.enabled = true
+     xml.enabled = false
+   }
+ }
+ checkstyle {
+    toolVersion = "8.8"
+ }
+
+
+
+ tasks.withType(com.github.spotbugs.SpotBugsTask) {
+   reports {
+     xml.enabled = false
+     html.enabled = true
+   }
+ }
