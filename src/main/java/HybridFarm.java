@@ -1,5 +1,3 @@
-package main.java;
-
 public class HybridFarm implements Farm {
     @Override
     public void addCoints() {
