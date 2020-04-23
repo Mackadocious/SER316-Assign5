@@ -1,16 +1,16 @@
 package Logic;
 
-public class GameSingleton {
+public final class GameSingleton {
 
     private static GameSingleton instance = null;
-    
 
-    private GameSingleton(){
+
+    private GameSingleton() {
 
     }
 
-    public static GameSingleton getInstance(){
-        if(instance == null){
+    public static GameSingleton getInstance() {
+        if (instance == null) {
             instance = new GameSingleton();
         }
         return instance;
