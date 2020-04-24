@@ -1,4 +1,5 @@
 package Logic;
+
 import java.util.Scanner;
 
 
@@ -12,18 +13,15 @@ class Main {
         gameLoop();
 
 
-
-
-
-
     }
+
     private static void gameLoop() {
         Scanner scan = new Scanner(System.in);
 
 
-        while (playing) {
-            game = GameSingleton.getInstance();
 
+            game = GameSingleton.getInstance();
+        while (playing) {
 
             //game logic here//
 
@@ -33,11 +31,13 @@ class Main {
             option = scan.nextLine();
 
             if (option.equalsIgnoreCase("y")) {
+                game.runGame();
 
-                continue;
-            }else if(option.equalsIgnoreCase("n")){
+            } else if (option.equalsIgnoreCase("n")) {
+                playing = false;
                 break;
-            }else{
+            } else {
+                playing = false;
                 break;
             }
         }
