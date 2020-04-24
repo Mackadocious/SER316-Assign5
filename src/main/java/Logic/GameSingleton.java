@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public final class GameSingleton {
-    private static GameSingleton instance = null;
+    public static GameSingleton instance = null;
     String log = "";
     boolean day = true;
     ArrayList<Farm> farms;

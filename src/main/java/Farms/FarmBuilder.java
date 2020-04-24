@@ -1,6 +1,6 @@
 package Farms;
 
-import Farmers.Farmer;
+import Farmers.AnimalFarmer;
 
 import java.util.Random;
 
@@ -18,16 +18,10 @@ public class FarmBuilder {
     public static Farm generateFarm(String type) {
         farm = setType(type);
         farmCount++;
-        generateFarmers();
         return farm;
     }
 
-    public static void generateFarmers() {
-        random = new Random();
-        int farmerAmount = random.nextInt(6);
-        for (int i = 0; i < farmerAmount; i++) {
-            farm.addFarmer(new Farmer());
-        }
+
 
 
     }

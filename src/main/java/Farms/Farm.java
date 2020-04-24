@@ -1,9 +1,9 @@
 package Farms;
 
-import Farmers.Farmer;
+import Farmers.AnimalFarmer;
 
 public interface Farm {
 
     void generatePassiveCurrency();
-    void addFarmer(Farmer farmer);
+    void addFarmer();
 }
