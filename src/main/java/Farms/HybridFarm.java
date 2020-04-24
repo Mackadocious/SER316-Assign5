@@ -1,5 +1,5 @@
 package Farms;
 
-public class HybridFarm implements FarmBuilder {
+public class HybridFarm implements Farm {
 
 }

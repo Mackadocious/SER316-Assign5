@@ -1,5 +1,5 @@
 package Farms;
 
-public class AnimalFarm implements FarmBuilder {
+public class AnimalFarm implements Farm {
 
 }

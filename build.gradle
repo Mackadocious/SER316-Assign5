@@ -7,14 +7,16 @@ apply plugin: 'application'
 apply plugin: 'jacoco'
 
 
-mainClassName = 'main.java.Main'
+mainClassName = 'Logic.Main'
 
 
 
 repositories {
     jcenter()
 }
-
+ run{
+     standardInput = System.in
+ }
 
 dependencies {
     compile 'junit:junit:4.12'
