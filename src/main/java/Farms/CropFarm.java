@@ -81,4 +81,9 @@ public class CropFarm implements Farm, FarmObserver {
     public void checkInvetoryOnAllFarms() {
         runInventory();
     }
+
+    @Override
+    public void setNight() {
+        //logic for predator kills
+    }
 }

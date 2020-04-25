@@ -28,5 +28,12 @@ public class FarmGrabber implements FarmSubject {
 
     }
 
+    public void setNight(){
+        for(int i=0; i < observers.size(); i++){
+            observers.get(i).setNight();
+        }
+
+    }
+
 
 }

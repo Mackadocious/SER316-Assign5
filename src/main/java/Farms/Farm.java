@@ -2,6 +2,7 @@ package Farms;
 
 import Animal.Animal;
 import Farmers.Farmer;
+import Predator.Predator;
 
 public interface Farm extends FarmObserver {
 
@@ -20,6 +21,7 @@ public interface Farm extends FarmObserver {
     void generateFarmerCurrency();
     int getCycle();
     void incrementCycle();
+    Predator addPredator();
 
 
 }

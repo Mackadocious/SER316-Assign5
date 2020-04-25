@@ -84,4 +84,9 @@ public class FishFarm implements Farm, FarmObserver {
     public void checkInvetoryOnAllFarms() {
         runInventory();
     }
+
+    @Override
+    public void setNight() {
+
+    }
 }

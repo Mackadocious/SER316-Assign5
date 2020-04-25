@@ -3,20 +3,29 @@ package Farms;
 import Animal.*;
 import Farmers.Farmer;
 import Farmers.FarmerBuilder;
+import Predator.Predator;
+import Predator.PredatorGrabber;
+import Predator.PredatorObserver;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class AnimalFarm implements Farm, AnimalSubject, FarmObserver {
+public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorObserver {
     ArrayList<Farmer> farmers;
     int cycle;
     int farmerSize;
     int animalsSize;
+    int predatorSize;
     AnimalFactory factory;
     AnimalGrabber grabber = new AnimalGrabber();
+    PredatorGrabber predGrapper = new PredatorGrabber();
     ArrayList<Animal> animals;
+    ArrayList<Predator> predators;
     String name = "";
     String type = "animal";
+
+
+
 
 
     int currency;
@@ -26,11 +35,13 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver {
         animals = new ArrayList<Animal>();
         farmers = new ArrayList<Farmer>();
         factory = new AnimalFactory();
+        predators = new ArrayList<Predator>();
 
         cycle = 0;
         this.name = s;
         farmerSize = 10;
         animalsSize = 10;
+        predatorSize = 3;
         System.out.println("New farm, " + this.name + " of type: " + this.type + " created");
         currency = 0;
         for(int i = 0; i < 10; i++) {//add starting animals
@@ -120,11 +131,19 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver {
             if (cycle % 4 == 0) {
                 checkForBabies();
             }
-
+            chanceSickness();
             notifyOfRemoveLife();
             checkDeath();
 
             System.out.println(this.name + "Total currency: " + this.currency);
+    }
+
+    private void chanceSickness() {
+        Random random = new Random();
+        int chance = random.nextInt(3);
+        if(chance == 2){
+            notifyOfSick();
+        }
     }
 
     private void checkForBabies() {
@@ -297,9 +316,28 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver {
         cycle++;
     }
 
+    @Override
+
+
 
     @Override
     public void checkInvetoryOnAllFarms() {
         runInventory();
+    }
+
+    @Override
+    public void setNight() {
+        Random random = new Random();
+        if(predators.size() < predatorSize){
+            if(random.nextInt(5) == 4){
+                addPredator();
+            }
+        }
+    }
+
+
+    @Override
+    public void incrementPredatorSkillLevel() {
+
     }
 }
