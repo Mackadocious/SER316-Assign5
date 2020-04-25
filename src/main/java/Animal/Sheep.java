@@ -2,13 +2,13 @@ package Animal;
 
 import java.util.Random;
 
-public class Horse implements Animal {
-    final String TYPE = "Horse";
-    final String PRODUCT = "Stamina";
+public class Sheep implements Animal {
+    final String TYPE = "Sheep";
+    final String PRODUCT = "Wool";
     boolean sick = false;
-    int stamina = 0;
+    int wool = 0;
 
-    public Horse() {
+    public Sheep() {
         setInventoryCount();
     }
 
@@ -19,12 +19,12 @@ public class Horse implements Animal {
     }
 
     public void setInventoryCount() {
-        this.stamina += getRandomCount(50);
+        this.wool += getRandomCount(20);
     }
 
     @Override
     public int getInventory() {
-        return this.stamina;
+        return this.wool;
     }
 
     @Override
@@ -35,11 +35,6 @@ public class Horse implements Animal {
     @Override
     public String getProductType() {
         return this.PRODUCT;
-    }
-
-    @Override
-    public void setInventory(int p) {
-        this.stamina = p;
     }
 
 

@@ -1,4 +1,59 @@
 package Animal;
 
+import java.util.Random;
+
 public class Cow implements Animal {
+    final String TYPE = "Cow";
+    final String PRODUCT = "Milk";
+    boolean sick = false;
+    int milk = 0;
+
+    public Cow() {
+        setInventoryCount();
+    }
+
+    public int getRandomCount(int chance) {
+        Random random = new Random();
+        return random.nextInt(chance);
+
+    }
+
+    public void setInventoryCount() {
+        this.milk+= getRandomCount(10);
+    }
+
+    @Override
+    public int getInventory() {
+        return this.milk;
+    }
+    public String getProductType() {
+        return this.PRODUCT;
+    }
+
+    @Override
+    public void setInventory(int p) {
+        this.milk = p;
+    }
+
+    @Override
+    public String getType() {
+        return this.TYPE;
+    }
+
+
+    @Override
+    public void setSick() {
+        this.sick = true;
+    }
+
+    @Override
+    public void setWell() {
+        this.sick = false;
+
+    }
+
+    @Override
+    public boolean getSick() {
+        return sick;
+    }
 }

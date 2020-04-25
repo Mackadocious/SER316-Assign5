@@ -1,15 +1,11 @@
 package Farmers;
 
-import Farms.Farm;
-import Farms.FarmBuilder;
-
 import java.util.Random;
 
 public class FarmerBuilder {
 
 
-
-    public static Farmer createFarmer(){
+    public static Farmer createFarmer() {
         Farmer farmer;
         Random random = new Random();
         int chance = random.nextInt(2);

@@ -1,5 +1,6 @@
 package Farms;
 
+import Animal.Animal;
 import Farmers.Farmer;
 import Farmers.FarmerBuilder;
 
@@ -21,8 +22,8 @@ public class CropFarm implements Farm {
     @Override
     public void generatePassiveCurrency() {
         int cashFarmerCount = 0;
-        for(int i = 0; i < farmers.size(); i++){
-            if(farmers.get(i).getType().equalsIgnoreCase("cash")){
+        for (int i = 0; i < farmers.size(); i++) {
+            if (farmers.get(i).getType().equalsIgnoreCase("cash")) {
                 cashFarmerCount++;
             }
         }
@@ -36,6 +37,31 @@ public class CropFarm implements Farm {
     @Override
     public void addFarmer() {
         farmers.add(FarmerBuilder.createFarmer());
+
+    }
+
+    @Override
+    public void runInventory() {
+
+    }
+
+    @Override
+    public void checkDeath() {
+
+    }
+
+    @Override
+    public int getCurrency() {
+        return 0;
+    }
+
+    @Override
+    public int sell(Animal animal) {
+        return 0;
+    }
+
+    @Override
+    public void generateFarmerCurrency() {
 
     }
 }

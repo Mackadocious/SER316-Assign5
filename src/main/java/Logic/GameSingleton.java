@@ -3,7 +3,6 @@ package Logic;
 import Farms.Farm;
 import Farms.FarmBuilder;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -57,9 +56,8 @@ public final class GameSingleton {
     }
 
     void runGame() {
-        for(int loop = 0; loop < 10; loop++){ //cycle loop
+        for (int loop = 0; loop < 10; loop++) { //cycle loop
             dayCycleCount++;
-
 
 
             day = false; //start night cycle

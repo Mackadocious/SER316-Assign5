@@ -14,17 +14,17 @@ public class AnimalFarmer implements Farmer {
 
     }
 
+    @Override
+    public int getSkill() {
+        return this.skill;
+
+    }
 
     @Override
     public void setSkill(int skill) {
         this.skill = skill;
     }
 
-    @Override
-    public int getSkill() {
-        return this.skill;
-
-    }
     @Override
     public String getType() {
         return this.TYPE;

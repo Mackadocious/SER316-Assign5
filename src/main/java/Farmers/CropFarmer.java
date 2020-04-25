@@ -2,7 +2,7 @@ package Farmers;
 
 import java.util.Random;
 
-public class CropFarmer implements Farmer{
+public class CropFarmer implements Farmer {
     public final String TYPE = "crop";
     int skill;
 
@@ -14,16 +14,15 @@ public class CropFarmer implements Farmer{
 
     }
 
-
-    @Override
-    public void setSkill(int skill) {
-        this.skill = skill;
-    }
-
     @Override
     public int getSkill() {
         return this.skill;
 
+    }
+
+    @Override
+    public void setSkill(int skill) {
+        this.skill = skill;
     }
 
     @Override

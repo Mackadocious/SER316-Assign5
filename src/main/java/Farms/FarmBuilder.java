@@ -1,7 +1,5 @@
 package Farms;
 
-import Farmers.AnimalFarmer;
-
 import java.util.Random;
 
 public class FarmBuilder {
@@ -22,18 +20,13 @@ public class FarmBuilder {
     }
 
 
-
-
-    }
-
-
     public static Farm setType(String type) {
         if (type.equalsIgnoreCase("animal")) {
             return new AnimalFarm("Farm" + farmCount);
         } else if (type.equalsIgnoreCase("crop")) {
             return new CropFarm("Farm" + farmCount);
         } else {
-            return new HybridFarm("Farm" + farmCount);
+            return new FishFarm("Farm" + farmCount);
         }
 
     }

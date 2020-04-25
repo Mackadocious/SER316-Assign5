@@ -19,8 +19,7 @@ class Main {
         Scanner scan = new Scanner(System.in);
 
 
-
-            game = GameSingleton.getInstance();
+        game = GameSingleton.getInstance();
         while (playing) {
 
             //game logic here//

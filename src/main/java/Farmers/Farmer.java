@@ -1,7 +1,9 @@
 package Farmers;
 
 public interface Farmer {
-    void setSkill(int skill);
     int getSkill();
+
+    void setSkill(int skill);
+
     String getType();
 }
