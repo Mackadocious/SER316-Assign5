@@ -7,4 +7,5 @@ public interface AnimalObserver {
 
     public void removeLife();
 
+    void addToInventory();
 }

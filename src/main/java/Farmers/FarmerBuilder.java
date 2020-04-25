@@ -19,6 +19,7 @@ public class FarmerBuilder {
 
             case 2:
                 farmer = new CashFarmer();
+
                 break;
 
             default:

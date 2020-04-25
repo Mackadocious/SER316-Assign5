@@ -1,13 +1,13 @@
 package Logic;
 
-import Farms.Farm;
-import Farms.FarmBuilder;
+import Farms.*;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public final class GameSingleton {
+public final class GameSingleton implements FarmSubject {
     public static GameSingleton instance = null;
+    FarmGrabber farmGrabber = new FarmGrabber();
     String log = "";
     boolean day = true;
     ArrayList<Farm> farms;
@@ -19,7 +19,9 @@ public final class GameSingleton {
 
     private GameSingleton() {
         farms = new ArrayList<>();
-        farms.add(chooseFarm()); //creates the first farm.
+        Farm farm = chooseFarm();
+        farms.add(farm); //creates the first farm.
+        farmGrabber.register(farm);
         runGame();
 
 
@@ -34,8 +36,9 @@ public final class GameSingleton {
 
     private Farm chooseFarm() {
         Random random = new Random();
-        int chance = random.nextInt(2);
+        int chance = random.nextInt(3);
         Farm chosenFarm;
+        chance = 1; //TEMPORARY REMOVE TO GENERATE OTHER FARMS OTHER THAN ANIMAL
         switch (chance) {
             case 0:
                 chosenFarm = FarmBuilder.generateFarm("crop");
@@ -45,7 +48,7 @@ public final class GameSingleton {
                 break;
 
             case 2:
-                chosenFarm = FarmBuilder.generateFarm("hybrid");
+                chosenFarm = FarmBuilder.generateFarm("fish");
                 break;
 
             default:
@@ -59,12 +62,13 @@ public final class GameSingleton {
         for (int loop = 0; loop < 10; loop++) { //cycle loop
             dayCycleCount++;
 
-
+            farmGrabber.notifyCheckInventory();
             day = false; //start night cycle
             nightCycleCount++;
 
             day = true; //end night cycle
             cycleCount++;
+            System.out.println("End Cycle");
         }
         System.out.println("Cycles: " + cycleCount);
 
@@ -72,4 +76,18 @@ public final class GameSingleton {
     }
 
 
+    @Override
+    public void notifyCheckInventory() {
+
+    }
+
+    @Override
+    public void register(FarmObserver o) {
+
+    }
+
+    @Override
+    public void unregister(FarmObserver o) {
+
+    }
 }

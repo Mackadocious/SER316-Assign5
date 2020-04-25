@@ -7,7 +7,7 @@ import Farmers.FarmerBuilder;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class AnimalFarm implements Farm, AnimalSubject {
+public class AnimalFarm implements Farm, AnimalSubject, FarmObserver {
     ArrayList<Farmer> farmers;
     int cycle;
     int farmerSize;
@@ -22,13 +22,21 @@ public class AnimalFarm implements Farm, AnimalSubject {
     int currency;
 
     public AnimalFarm(String s) {
+        Random random = new Random();
+        animals = new ArrayList<Animal>();
+        farmers = new ArrayList<Farmer>();
         factory = new AnimalFactory();
+
         cycle = 0;
         this.name = s;
         farmerSize = 10;
         animalsSize = 10;
         System.out.println("New farm, " + this.name + " of type: " + this.type + " created");
         currency = 0;
+        for(int i = 0; i < 10; i++) {//add starting animals
+            addAnimal();
+        }
+
     }
 
 
@@ -40,7 +48,7 @@ public class AnimalFarm implements Farm, AnimalSubject {
             if (farmers.get(i).getType().equalsIgnoreCase("cash")) {
                 cashFarmerCount++;
             }
-            totalCurrencyCount = totalCurrencyCount * 15;
+            totalCurrencyCount = (totalCurrencyCount + 100);
             System.out.println("Farmers with a nack for making cash on " + this.name + "have generated " + totalCurrencyCount + " extra currency this tick");
 
         }
@@ -52,61 +60,71 @@ public class AnimalFarm implements Farm, AnimalSubject {
     }
 
     public void addAnimal() {
-        Random random = new Random();
+
+            Random random = new Random();
         int chance = random.nextInt(2);
 
         Animal animal = factory.createAnimal(chance);
-
+        animals.add(animal);
         register(animal);
+
 
 
     }
 
     @Override
     public void addFarmer() {
-        this.farmers.add(FarmerBuilder.createFarmer());
-
+        Random random = new Random();
+        if(random.nextInt(3) == 2 && farmers.size() < farmerSize && currency > 50) {
+            Farmer farmer = FarmerBuilder.createFarmer();
+            this.farmers.add(farmer);
+            System.out.println("A farmer of type " + farmer.getType() + " has been added to " + this.name);
+            System.out.println("Farmer count for farm " + this.name + ": " + farmers.size() + "\n max farmer size: " + this.farmerSize);
+        }
     }
 
     @Override
     public void runInventory() {
+            addFarmer();
+            Random random = new Random();
+            grabber.notfiyOfAddToInventory();
+            for (int i = 0; i < animals.size(); i++) {
+                if (animals.get(i).getInventory() > 18) {
+                    this.currency += sell(animals.get(i));
 
-        Random random = new Random();
-        for (int i = 0; i < animals.size(); i++) {
-            if (animals.get(i).getInventory() > 18) {
-                sell(animals.get(i));
-                animals.remove(animals.get(i));
+                }
             }
-        }
-        if (animals.size() < animalsSize && this.currency >= 200) {
+            if (animals.size() < animalsSize && this.currency >= 20) {
 
-            int chance = random.nextInt(1);
-            if (chance == 0) {
-                addAnimal();
-                System.out.println("A new " + animals.get(animals.size() - 1).getType() + " has been added to " + this.name);
-            }
-        }
+                int chance = random.nextInt(1);
+                if (chance == 0 && currency >= 200) {
+                    addAnimal();
 
-        if (farmers.size() < farmerSize) {
-            int chance = random.nextInt(1);
-            if (chance == 0) {
-                addFarmer();
-
+                    System.out.println("A new " + animals.get(animals.size() - 1).getType() + " has been bought for $200  and added to farm "  + this.name);
+                    this.currency -= 200;
+                }
             }
 
+            if (farmers.size() < farmerSize) {
+                int chance = random.nextInt(1);
+                if (chance == 0) {
+                    addFarmer();
 
-        }
-
-        generateFarmerCurrency();
-        checkUpgrade();
-        if(cycle % 4 == 0) {
-            checkForBabies();
-        }
-
-        notifyOfRemoveLife();
-        checkDeath();
+                }
 
 
+            }
+
+            generateFarmerCurrency();
+            checkUpgrade();
+            if (cycle % 4 == 0) {
+                checkForBabies();
+            }
+
+            notifyOfRemoveLife();
+            checkDeath();
+
+            System.out.println(this.name + "Total currency: " + this.currency);
     }
 
     private void checkForBabies() {
@@ -131,7 +149,7 @@ public class AnimalFarm implements Farm, AnimalSubject {
                 int horsePair = horseCount/2;
                 if(cowsPair > 0){
                     for(int x = 0; x < cowsPair; x++){
-                        if(random.nextInt(8) == 4){
+                        if(random.nextInt(2) == 1){
                             System.out.println("A pair of cows on " + this.name + " had a calf. +1 cow");
                             tempAnimal = factory.createAnimal(1);
                             animals.add(tempAnimal);
@@ -143,7 +161,7 @@ public class AnimalFarm implements Farm, AnimalSubject {
                 }
                 if(sheepPair > 0){
                     for(int x = 0; x < sheepPair; x++){
-                        if(random.nextInt(8) == 4){
+                        if(random.nextInt(2) == 1){
                             System.out.println("A pair of Sheep on " + this.name + " had a lamb. +1 sheep");
                             tempAnimal = factory.createAnimal(2);
                             animals.add(tempAnimal);
@@ -155,7 +173,7 @@ public class AnimalFarm implements Farm, AnimalSubject {
                 }
             if(horsePair > 0){
                 for(int x = 0; x < horsePair; x++){
-                    if(random.nextInt(8) == 4){
+                    if(random.nextInt(2) == 1){
                         System.out.println("A pair of Horses on " + this.name + " had a foal. +1 horse");
                         tempAnimal = factory.createAnimal(0);
                         animals.add(tempAnimal);
@@ -176,9 +194,10 @@ public class AnimalFarm implements Farm, AnimalSubject {
     }
 
     private void checkUpgrade() {
-        if(currency >= 1000){
+        if(currency >= 5000){
             farmerSize += 5;
             animalsSize += 5;
+            System.out.println("Farm " + this.name + "has been upgraded: Animal Capacity: " +animalsSize + " farmer capacity: " + farmerSize);
         }
     }
 
@@ -210,6 +229,11 @@ public class AnimalFarm implements Farm, AnimalSubject {
     }
 
     @Override
+    public void notfiyOfAddToInventory() {
+        grabber.notfiyOfAddToInventory();
+    }
+
+    @Override
     public void checkDeath() {
         int diedCounter = 0;
         for (int i = 0; i < animals.size(); i++) {
@@ -221,21 +245,23 @@ public class AnimalFarm implements Farm, AnimalSubject {
 
 
             }
-            System.out.println(diedCounter + " animals on farm " + this.name + " have died of it's sickness \n " +
-                    (animals.size() + 1) + "have survived on " + this.name);
+
         }
+        System.out.println(diedCounter + " animals on farm " + this.name + " have died of it's sickness \n " +
+                (animals.size() + 1) + "have survived on " + this.name);
         diedCounter = 0;
         for (int i = 0; i < animals.size(); i++) {
-            if (animals.get(i).getLife() >= 14) {
+            if (animals.get(i).getLife() <= 14) {
                 grabber.unregister(animals.get(i));
                 animals.remove(i);
                 diedCounter++;
 
 
             }
-            System.out.println(diedCounter + " animals on farm " + this.name + " have died of it's old age \n " +
-                    (animals.size() + 1) + "have survived on " + this.name);
+
         }
+        System.out.println(diedCounter + " animals on farm " + this.name + " have died of it's old age \n " +
+                (animals.size() + 1) + "have survived on " + this.name);
     }
 
     @Override
@@ -245,8 +271,8 @@ public class AnimalFarm implements Farm, AnimalSubject {
 
     @Override
     public int sell(Animal animal) {
-        int price = animal.getInventory() * 20;
-        System.out.println("A " + animal.getType() + "'s" + animal.getProductType() +  " has used sold for " + price + " on " + this.name);
+        int price = animal.getInventory() * 5;
+        System.out.println("A " + animal.getType() + "'s" + animal.getProductType() +  " has been used for " + price + " on " + this.name);
         animal.setInventory(0);
         return price;
     }
@@ -258,7 +284,7 @@ public class AnimalFarm implements Farm, AnimalSubject {
             if (farmers.get(i).getType() == "animal") ;
             animalFarmerCount++;
         }
-        currency += 50 * animalFarmerCount;
+        currency += 10 * animalFarmerCount;
     }
 
     @Override
@@ -272,4 +298,8 @@ public class AnimalFarm implements Farm, AnimalSubject {
     }
 
 
+    @Override
+    public void checkInvetoryOnAllFarms() {
+        runInventory();
+    }
 }

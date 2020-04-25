@@ -6,7 +6,7 @@ import Farmers.FarmerBuilder;
 
 import java.util.ArrayList;
 
-public class CropFarm implements Farm {
+public class CropFarm implements Farm, FarmObserver {
     ArrayList<Farmer> farmers;
     int cycle;
     String name = "";
@@ -75,5 +75,10 @@ public class CropFarm implements Farm {
     @Override
     public void incrementCycle() {
         cycle++;
+    }
+
+    @Override
+    public void checkInvetoryOnAllFarms() {
+        runInventory();
     }
 }

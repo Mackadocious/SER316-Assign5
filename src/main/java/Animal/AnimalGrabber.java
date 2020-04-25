@@ -14,6 +14,7 @@ public class AnimalGrabber implements AnimalSubject {
     @Override
     public void register(AnimalObserver newObserver) {
         observers.add(newObserver);
+        System.out.println("Animal Observer Count " + observers.size()); //TEMPORARY
     }
 
 
@@ -48,8 +49,17 @@ public class AnimalGrabber implements AnimalSubject {
     }
 
     @Override
+    public void notfiyOfAddToInventory() {
+        for(int i = 0; i < observers.size(); i++){
+            observers.get(i).addToInventory();
+        }
+    }
+
+    @Override
     public void unregister(AnimalObserver o) {
         observers.remove(observers.indexOf(o));
 
     }
+
+
 }

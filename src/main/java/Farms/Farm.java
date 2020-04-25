@@ -1,8 +1,9 @@
 package Farms;
 
 import Animal.Animal;
+import Farmers.Farmer;
 
-public interface Farm {
+public interface Farm extends FarmObserver {
 
     void generatePassiveCurrency();
 
@@ -19,5 +20,6 @@ public interface Farm {
     void generateFarmerCurrency();
     int getCycle();
     void incrementCycle();
+
 
 }

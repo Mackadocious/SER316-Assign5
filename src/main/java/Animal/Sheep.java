@@ -72,4 +72,11 @@ public class Sheep implements Animal {
     public boolean getSick() {
         return this.sick;
     }
+    @Override
+    public void addToInventory() {
+        Random random = new Random();
+
+        this.wool += random.nextInt(30);
+        System.out.println(this.TYPE + "inventory: " + this.getInventory());
+    }
 }

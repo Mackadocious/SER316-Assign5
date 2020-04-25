@@ -21,7 +21,7 @@ public class Horse implements Animal {
     }
 
     public void setInventoryCount() {
-        if(life > 2 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 2 days.
+        if(life < 12 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 2 days.
             this.stamina += getRandomCount(50);
         }
     }
@@ -71,5 +71,12 @@ public class Horse implements Animal {
     @Override
     public boolean getSick() {
         return sick;
+    }
+    @Override
+    public void addToInventory() {
+        Random random = new Random();
+
+        this.stamina += random.nextInt(30);
+        System.out.println(this.TYPE + "inventory: " + this.getInventory());
     }
 }

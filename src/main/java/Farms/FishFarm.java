@@ -7,7 +7,7 @@ import Farmers.FarmerBuilder;
 
 import java.util.ArrayList;
 
-public class FishFarm implements Farm {
+public class FishFarm implements Farm, FarmObserver {
     ArrayList<Farmer> farmers;
     int cycle;
     String name = "";
@@ -17,7 +17,7 @@ public class FishFarm implements Farm {
 
     public FishFarm(String s) {
         this.name = s;
-        cycle  = 0;
+        cycle = 0;
         currency = 0;
         System.out.println("New farm, " + this.name + " of type: " + this.type + " created");
     }
@@ -76,8 +76,12 @@ public class FishFarm implements Farm {
 
     @Override
     public void incrementCycle() {
-    this.cycle++;
+        this.cycle++;
     }
 
 
+    @Override
+    public void checkInvetoryOnAllFarms() {
+        runInventory();
+    }
 }

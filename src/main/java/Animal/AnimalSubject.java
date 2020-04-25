@@ -12,4 +12,6 @@ public interface AnimalSubject {
 
     public void notifyOfRemoveLife();
 
+    public void notfiyOfAddToInventory();
+
 }

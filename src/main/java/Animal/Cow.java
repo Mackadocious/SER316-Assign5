@@ -41,7 +41,7 @@ public class Cow implements Animal {
 
     @Override
     public int getLife() {
-        return this.life--;
+        return this.life;
     }
 
     @Override
@@ -64,6 +64,14 @@ public class Cow implements Animal {
     @Override
     public void removeLife() {
         this.life--;
+    }
+
+    @Override
+    public void addToInventory() {
+        Random random = new Random();
+
+        this.milk += random.nextInt(30);
+        System.out.println(this.TYPE + "inventory: " + this.getInventory());
     }
 
     @Override
