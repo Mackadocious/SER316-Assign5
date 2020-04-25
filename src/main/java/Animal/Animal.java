@@ -14,5 +14,6 @@ public interface Animal extends AnimalObserver {
     String getProductType();
     void setInventory(int p);
 
+   int getLife();
 
 }

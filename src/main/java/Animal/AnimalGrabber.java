@@ -41,6 +41,13 @@ public class AnimalGrabber implements AnimalSubject {
     }
 
     @Override
+    public void notifyOfRemoveLife() {
+        for(int i= 0; i < observers.size(); i++){
+            observers.get(i).removeLife();
+        }
+    }
+
+    @Override
     public void unregister(AnimalObserver o) {
         observers.remove(observers.indexOf(o));
 

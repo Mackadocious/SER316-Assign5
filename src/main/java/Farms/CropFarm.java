@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class CropFarm implements Farm {
     ArrayList<Farmer> farmers;
+    int cycle;
     String name = "";
     int currency;
     String type = "crop";
@@ -17,6 +18,7 @@ public class CropFarm implements Farm {
         this.name = s;
         System.out.println("New farm, " + this.name + " of type: " + this.type + " created");
         currency = 0;
+        cycle = 0;
     }
 
     @Override
@@ -63,5 +65,15 @@ public class CropFarm implements Farm {
     @Override
     public void generateFarmerCurrency() {
 
+    }
+
+    @Override
+    public int getCycle() {
+        return this.cycle;
+    }
+
+    @Override
+    public void incrementCycle() {
+        cycle++;
     }
 }

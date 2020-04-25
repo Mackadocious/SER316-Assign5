@@ -10,4 +10,6 @@ public interface AnimalSubject {
 
     public void notifyOfWell();
 
+    public void notifyOfRemoveLife();
+
 }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class FishFarm implements Farm {
     ArrayList<Farmer> farmers;
+    int cycle;
     String name = "";
     String type = "Hybrid";
     int currency;
@@ -16,6 +17,7 @@ public class FishFarm implements Farm {
 
     public FishFarm(String s) {
         this.name = s;
+        cycle  = 0;
         currency = 0;
         System.out.println("New farm, " + this.name + " of type: " + this.type + " created");
     }
@@ -65,6 +67,16 @@ public class FishFarm implements Farm {
     @Override
     public void generateFarmerCurrency() {
 
+    }
+
+    @Override
+    public int getCycle() {
+        return this.cycle;
+    }
+
+    @Override
+    public void incrementCycle() {
+    this.cycle++;
     }
 
 

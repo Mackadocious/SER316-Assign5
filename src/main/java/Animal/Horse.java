@@ -5,11 +5,13 @@ import java.util.Random;
 public class Horse implements Animal {
     final String TYPE = "Horse";
     final String PRODUCT = "Stamina";
+    int life =  0;
     boolean sick = false;
     int stamina = 0;
 
     public Horse() {
         setInventoryCount();
+        life = 13;
     }
 
     public int getRandomCount(int chance) {
@@ -19,7 +21,9 @@ public class Horse implements Animal {
     }
 
     public void setInventoryCount() {
-        this.stamina += getRandomCount(50);
+        if(life > 2 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 2 days.
+            this.stamina += getRandomCount(50);
+        }
     }
 
     @Override
@@ -42,6 +46,11 @@ public class Horse implements Animal {
         this.stamina = p;
     }
 
+    @Override
+    public int getLife() {
+        return this.life;
+    }
+
 
     @Override
     public void setSick() {
@@ -52,6 +61,11 @@ public class Horse implements Animal {
     public void setWell() {
         this.sick = false;
 
+    }
+
+    @Override
+    public void removeLife() {
+        this.life--;
     }
 
     @Override

@@ -94,6 +94,7 @@ public class AnimalFarm implements Farm, AnimalSubject {
 
             }
 
+
         }
 
         generateFarmerCurrency();
@@ -101,6 +102,10 @@ public class AnimalFarm implements Farm, AnimalSubject {
         if(cycle % 4 == 0) {
             checkForBabies();
         }
+
+        notifyOfRemoveLife();
+        checkDeath();
+
 
     }
 
@@ -200,16 +205,35 @@ public class AnimalFarm implements Farm, AnimalSubject {
     }
 
     @Override
+    public void notifyOfRemoveLife() {
+        grabber.notifyOfRemoveLife();
+    }
+
+    @Override
     public void checkDeath() {
         int diedCounter = 0;
         for (int i = 0; i < animals.size(); i++) {
             if (animals.get(i).getSick() == true) {
+                grabber.unregister(animals.get(i));
                 animals.remove(i);
+
                 diedCounter++;
 
 
             }
             System.out.println(diedCounter + " animals on farm " + this.name + " have died of it's sickness \n " +
+                    (animals.size() + 1) + "have survived on " + this.name);
+        }
+        diedCounter = 0;
+        for (int i = 0; i < animals.size(); i++) {
+            if (animals.get(i).getLife() >= 14) {
+                grabber.unregister(animals.get(i));
+                animals.remove(i);
+                diedCounter++;
+
+
+            }
+            System.out.println(diedCounter + " animals on farm " + this.name + " have died of it's old age \n " +
                     (animals.size() + 1) + "have survived on " + this.name);
         }
     }

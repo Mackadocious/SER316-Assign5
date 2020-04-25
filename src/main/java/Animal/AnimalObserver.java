@@ -5,5 +5,6 @@ public interface AnimalObserver {
 
     public void setWell();
 
+    public void removeLife();
 
 }
