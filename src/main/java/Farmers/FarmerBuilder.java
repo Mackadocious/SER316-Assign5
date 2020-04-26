@@ -16,7 +16,7 @@ public class FarmerBuilder {
     public static Farmer createFarmer() {
         Farmer farmer;
         Random random = new Random();
-        int chance = random.nextInt(2);
+        int chance = random.nextInt(3);
         switch (chance) {
             case 0:
                 farmer = new CropFarmer();
@@ -27,6 +27,10 @@ public class FarmerBuilder {
 
             case 2:
                 farmer = new CashFarmer();
+
+                break;
+            case 3:
+                farmer = new FishFarmer();
 
                 break;
 

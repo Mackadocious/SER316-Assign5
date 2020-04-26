@@ -69,7 +69,7 @@ public final class GameSingleton implements FarmSubject {
 
     private Farm chooseFarm() {
         Random random = new Random();
-        int chance = random.nextInt(2); //change to 3 when fish farms are implemented
+        int chance = random.nextInt(3); //change to 3 when fish farms are implemented
         Farm chosenFarm;
 
         switch (chance) {
@@ -107,7 +107,7 @@ public final class GameSingleton implements FarmSubject {
             day = true; //end night cycle
             cycleCount++;
             checkForUpgrades();
-            System.out.println("End Cycle");
+            System.out.println("End Cycle\n----------------------");
         }
         System.out.println("Cycles: " + cycleCount);
 
@@ -117,8 +117,8 @@ public final class GameSingleton implements FarmSubject {
     private void checkForUpgrades() {
         for(int i = 0; i < farms.size(); i++){
             ArrayList<Farmer> farmers = farms.get(i).getFarmers();
-            if(farms.get(i).getCurrency() > 500 && farmers.size() == 10){
-                System.out.println(farms.get(i).getName() + " has bought a new farm. -500 currency, -3 farmers");
+            if(farms.get(i).getCurrency() > 1000 && farmers.size() == 10){
+                System.out.println(farms.get(i).getName() + " has bought a new farm. -1000 currency, -3 farmers");
                 farms.get(i).setCurrency(farms.get(i).getCurrency()-500);
                 farmers.remove(farmers.size()-1);
                 farmers.remove(farmers.size()-1);

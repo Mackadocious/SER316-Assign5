@@ -1,5 +1,6 @@
 package Farms;
 
+import Animal.Animal;
 import Crops.*;
 import Crops.CropsSubject;
 import Farmers.Farmer;
@@ -58,12 +59,12 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
             if (farmers.get(i).getType().equalsIgnoreCase("cash")) {
                 cashFarmerCount++;
             }
-            totalCurrencyCount = (totalCurrencyCount + 100);
-            System.out.println("Farmers with a nack for making cash on " + this.name + "have generated " + totalCurrencyCount + " extra currency this tick");
+            totalCurrencyCount = (totalCurrencyCount + 50);
+
 
         }
-
-        System.out.println(name + " has " + cashFarmerCount + "where generates extra passive currency for the farm");
+        System.out.println("Farmers with a nack for making cash on " + this.name + " have generated " + totalCurrencyCount + " extra currency this tick");
+        System.out.println(name + " has " + cashFarmerCount + " cash farmers that generate extra currency for the farm");
         currency += 200;
         currency += 100 * cashFarmerCount;
 
@@ -76,7 +77,7 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
 
         Crops crop = factory.createCrops(chance);
         crops.add(crop);
-        System.out.println("A patch of " + crop.getType() + " has been added to" + this.name);
+        System.out.println("A patch of " + crop.getType() + " has been added to " + this.name);
         register(crop);
 
 
@@ -97,6 +98,7 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
     @Override
     public void runInventory() { //daily farm loop. Runs once every tick.
         addFarmer();
+        generatePassiveCurrency();
         Random random = new Random();
         grabber.notfiyOfAddToInventory();
         for (int i = 0; i < crops.size(); i++) {
@@ -111,7 +113,7 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
             if (chance == 0 && currency >= 200) {
                 addCrops();
 
-                System.out.println("A field of" + crops.get(crops.size() - 1).getType() + " has been bought for $200  and added to farm "  + this.name);
+                System.out.println("A field of " + crops.get(crops.size() - 1).getType() + " has been bought for $200  and added to farm "  + this.name);
                 this.currency -= 200;
             }
         }
@@ -347,11 +349,10 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
                     int chance = random.nextInt(10);
                     if (chance < (6 + predators.get(i).getSkillLevel())) {
                         if (crops.size() > 0) {
-                            System.out.println("a predator has decimated crops on " + this.name);
-
-                            crops.remove(crops.size()-1);
-                            grabber.unregister(crops.get(crops.size()-1));
-                            crops.remove(crops.size()-1);
+                            System.out.println("a swarm of locust have decimated crops on " + this.name);
+                            Crops tempCrops = crops.get(crops.size()-1);
+                            grabber.unregister(tempCrops);
+                            crops.remove(tempCrops);
                             System.out.println("Crops remaining: " + crops.size());
 
                         }
@@ -363,7 +364,7 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
         if(predators.size() > 0){ //determines if a predator has been killed on a farm
             int chance = random.nextInt(20);
             if(chance == 1){
-                System.out.println("a swarm of locust on : " + this.name + " have been exterminated" +
+                System.out.println("a predator on : " + this.name + " have been exterminated" +
                         "\n Predators remaining: " + (predators.size()-1));
                 predGrapper.unregsiter(predators.get(predators.size()-1));
                 predators.remove(predators.get(predators.size()-1));

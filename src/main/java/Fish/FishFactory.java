@@ -3,7 +3,7 @@ package Fish;
 
 public class FishFactory {
 
-    public Fish createCrops(int input) {
+    public Fish createFish(int input) {
         if (input == 0) {
             return new Salmon();
 

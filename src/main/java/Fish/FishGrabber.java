@@ -31,7 +31,7 @@ public class FishGrabber implements FishSubject {
         for (int i = 0; i < observers.size(); i++) {
             int chance = random.nextInt(2);
             if (chance == 2) {
-                System.out.println("A fish patch has died");
+                System.out.println("A fish has died");
                 unregister(observers.get(i));
             } else {
                 observers.get(i).setWell();

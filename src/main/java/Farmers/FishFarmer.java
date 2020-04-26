@@ -3,15 +3,13 @@ package Farmers;
 import java.util.Random;
 
 /**
- * The type Cash farmer.
+ * The type Crop farmer.
  */
-public class CashFarmer implements Farmer {
-
-
+public class FishFarmer implements Farmer {
     /**
      * The Type.
      */
-    public final String TYPE = "cash";
+    public final String TYPE = "fish";
     /**
      * The Skill.
      */
@@ -23,10 +21,11 @@ public class CashFarmer implements Farmer {
     Random random;
 
     /**
-     * Instantiates a new Cash farmer.
+     * Instantiates a new Crop farmer.
      */
-    public CashFarmer() {
+    public FishFarmer() {
         random = new Random();
+
 
     }
 
@@ -45,5 +44,4 @@ public class CashFarmer implements Farmer {
     public String getType() {
         return this.TYPE;
     }
-
 }

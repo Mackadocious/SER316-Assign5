@@ -104,12 +104,12 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
             if (farmers.get(i).getType().equalsIgnoreCase("cash")) {
                 cashFarmerCount++;
             }
-            totalCurrencyCount = (totalCurrencyCount + 100);
-            System.out.println("Farmers with a nack for making cash on " + this.name + "have generated " + totalCurrencyCount + " extra currency this tick");
+            totalCurrencyCount = (totalCurrencyCount + 50);
+
 
         }
-
-        System.out.println(name + " has " + cashFarmerCount + "where generates extra passive currency for the farm");
+        System.out.println("Farmers with a nack for making cash on " + this.name + " have generated " + totalCurrencyCount + " extra currency this tick");
+        System.out.println(name + " has " + cashFarmerCount + " cash farmers that generate extra currency for the farm");
         currency += 200;
         currency += 100 * cashFarmerCount;
 
@@ -125,7 +125,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
 
         Animal animal = factory.createAnimal(chance);
         animals.add(animal);
-        System.out.println("An " + animal.getType() + " has been added to" + this.name);
+        System.out.println("An " + animal.getType() + " has been added to " + this.name);
         register(animal);
 
 
@@ -139,13 +139,14 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
             Farmer farmer = FarmerBuilder.createFarmer();
             this.farmers.add(farmer);
             System.out.println("A farmer of type " + farmer.getType() + " has been added to " + this.name);
-            System.out.println("Farmer count for farm " + this.name + ": " + farmers.size() + "\n max farmer size: " + this.farmerSize);
+            System.out.println("Farmer count for farm " + this.name + ": " + farmers.size() + "\nmax farmer size: " + this.farmerSize);
         }
     }
 
     @Override
     public void runInventory() { //daily farm loop. Runs once every tick.
             addFarmer();
+        generatePassiveCurrency();
             Random random = new Random();
             grabber.notfiyOfAddToInventory();
             for (int i = 0; i < animals.size(); i++) {
@@ -316,7 +317,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
 
         }
         System.out.println(diedCounter + " animals on farm " + this.name + " have died of it's sickness \n" +
-                (animals.size() + 1) + "have survived on " + this.name);
+                (animals.size() + 1) + " has continued living " + this.name);
         diedCounter = 0;
         for (int i = 0; i < animals.size(); i++) {
             if (animals.get(i).getLife() <= 14) {
@@ -396,11 +397,10 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
                     int chance = random.nextInt(10);
                     if (chance < (6 + predators.get(i).getSkillLevel())) {
                         if (animals.size() > 0) {
-                            System.out.println("a predator has gotten an animal on " + this.name);
-
-                            animals.remove(animals.size()-1);
-                            grabber.unregister(animals.get(animals.size()-1));
-                            animals.remove(animals.size()-1);
+                            System.out.println("a pack of coyotes have gotten an animal on " + this.name);
+                            Animal tempAnimal = animals.get(animals.size()-1);
+                            grabber.unregister(tempAnimal);
+                            animals.remove(tempAnimal);
                             System.out.println("Animals remaining: " + animals.size());
 
                         }
