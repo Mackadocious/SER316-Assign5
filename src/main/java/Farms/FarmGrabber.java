@@ -37,8 +37,8 @@ public class FarmGrabber implements FarmSubject {
     /**
      * Set night.
      */
-    public void setNight(){
-        for(int i=0; i < observers.size(); i++){
+    public void setNight() {
+        for (int i = 0; i < observers.size(); i++) {
             observers.get(i).setNight();
         }
 

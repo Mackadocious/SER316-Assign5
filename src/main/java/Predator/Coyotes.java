@@ -5,18 +5,18 @@ package Predator;
  */
 public class Coyotes implements Predator {
     /**
-     * The Skill level.
-     */
-    int skillLevel;
-    /**
      * The Type.
      */
     final String TYPE = "Coyotes";
+    /**
+     * The Skill level.
+     */
+    int skillLevel;
 
     /**
      * Instantiates a new Coyotes.
      */
-    public Coyotes(){
+    public Coyotes() {
         skillLevel = 1;
     }
 

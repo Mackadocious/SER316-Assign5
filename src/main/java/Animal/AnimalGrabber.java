@@ -16,6 +16,7 @@ public class AnimalGrabber implements AnimalSubject {
         observers = new ArrayList<AnimalObserver>();
 
     }
+
     /**
      * Registers a new animal with the observer
      */
@@ -35,6 +36,7 @@ public class AnimalGrabber implements AnimalSubject {
         }
 
     }
+
     /**
      * Notifies all animals that are observers that they are well
      */
@@ -52,24 +54,27 @@ public class AnimalGrabber implements AnimalSubject {
         }
 
     }
+
     /**
      * removes a life from all animals every cycle complete
      */
     @Override
     public void notifyOfRemoveLife() {
-        for(int i= 0; i < observers.size(); i++){
+        for (int i = 0; i < observers.size(); i++) {
             observers.get(i).removeLife();
         }
     }
+
     /**
      * randomly adds to the inventory of all animals that can be used to generate profit for the farm
      */
     @Override
     public void notfiyOfAddToInventory() {
-        for(int i = 0; i < observers.size(); i++){
+        for (int i = 0; i < observers.size(); i++) {
             observers.get(i).addToInventory();
         }
     }
+
     /**
      * removes an animal observer
      */

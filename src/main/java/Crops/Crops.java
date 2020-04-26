@@ -1,7 +1,5 @@
 package Crops;
 
-import Animal.AnimalObserver;
-
 public interface Crops extends CropsObserver {
     boolean getDiseased();
 
@@ -11,11 +9,11 @@ public interface Crops extends CropsObserver {
 
     int getInventory();
 
+    void setInventory(int p);
+
     String getType();
 
     String getProductType();
-
-    void setInventory(int p);
 
     int getLife();
 

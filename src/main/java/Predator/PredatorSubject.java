@@ -1,7 +1,5 @@
 package Predator;
 
-import java.util.Observer;
-
 /**
  * The interface Predator subject.
  */

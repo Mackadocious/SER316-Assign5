@@ -4,9 +4,9 @@ import Animal.*;
 import Farmers.Farmer;
 import Farmers.FarmerBuilder;
 import Predator.Predator;
+import Predator.PredatorFactory;
 import Predator.PredatorGrabber;
 import Predator.PredatorObserver;
-import Predator.PredatorFactory;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -76,7 +76,6 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
      * @param s the s
      */
     public AnimalFarm(String s) {
-        Random random = new Random();
         animals = new ArrayList<Animal>();
         farmers = new ArrayList<Farmer>();
         factory = new AnimalFactory();
@@ -89,7 +88,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
         predatorSize = 3;
         System.out.println("New farm, " + this.name + " of type: " + this.type + " created");
         currency = 0;
-        for(int i = 0; i < 10; i++) {//add starting animals
+        for (int i = 0; i < 10; i++) {//add starting animals
             addAnimal();
         }
 
@@ -120,7 +119,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
      */
     public void addAnimal() { //creates a random animal and registers with the observer.
 
-            Random random = new Random();
+        Random random = new Random();
         int chance = random.nextInt(2);
 
         Animal animal = factory.createAnimal(chance);
@@ -129,13 +128,12 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
         register(animal);
 
 
-
     }
 
     @Override
     public void addFarmer() { //creats farmer using the FarmerBuilder with a random skill.
         Random random = new Random();
-        if(random.nextInt(3) == 2 && farmers.size() < farmerSize && currency > 50) {
+        if (random.nextInt(3) == 2 && farmers.size() < farmerSize && currency > 50) {
             Farmer farmer = FarmerBuilder.createFarmer();
             this.farmers.add(farmer);
             System.out.println("A farmer of type " + farmer.getType() + " has been added to " + this.name);
@@ -145,53 +143,53 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
 
     @Override
     public void runInventory() { //daily farm loop. Runs once every tick.
-            addFarmer();
+        addFarmer();
         generatePassiveCurrency();
-            Random random = new Random();
-            grabber.notfiyOfAddToInventory();
-            for (int i = 0; i < animals.size(); i++) {
-                if (animals.get(i).getInventory() > 18) {
-                    this.currency += sell(animals.get(i));
+        Random random = new Random();
+        grabber.notfiyOfAddToInventory();
+        for (int i = 0; i < animals.size(); i++) {
+            if (animals.get(i).getInventory() > 18) {
+                this.currency += sell(animals.get(i));
 
-                }
             }
-            if (animals.size() < animalsSize && this.currency >= 20) {
+        }
+        if (animals.size() < animalsSize && this.currency >= 20) {
 
-                int chance = random.nextInt(1);
-                if (chance == 0 && currency >= 200) {
-                    addAnimal();
+            int chance = random.nextInt(1);
+            if (chance == 0 && currency >= 200) {
+                addAnimal();
 
-                    System.out.println("A new " + animals.get(animals.size() - 1).getType() + " has been bought for $200  and added to farm "  + this.name);
-                    this.currency -= 200;
-                }
+                System.out.println("A new " + animals.get(animals.size() - 1).getType() + " has been bought for $200  and added to farm " + this.name);
+                this.currency -= 200;
             }
+        }
 
-            if (farmers.size() < farmerSize) {
-                int chance = random.nextInt(1);
-                if (chance == 0) {
-                    addFarmer();
-
-                }
-
+        if (farmers.size() < farmerSize) {
+            int chance = random.nextInt(1);
+            if (chance == 0) {
+                addFarmer();
 
             }
 
-            generateFarmerCurrency();
-            checkUpgrade();
-            if (cycle % 4 == 0) {
-                checkForBabies();
-            }
-            chanceSickness();
-            notifyOfRemoveLife();
-            checkDeath();
 
-            System.out.println(this.name + "Total currency: " + this.currency);
+        }
+
+        generateFarmerCurrency();
+        checkUpgrade();
+        if (cycle % 4 == 0) {
+            checkForBabies();
+        }
+        chanceSickness();
+        notifyOfRemoveLife();
+        checkDeath();
+
+        System.out.println(this.name + "Total currency: " + this.currency);
     }
 
     private void chanceSickness() { //creats sickness on farm
         Random random = new Random();
         int chance = random.nextInt(3);
-        if(chance == 2){
+        if (chance == 2) {
             notifyOfSick();
         }
     }
@@ -202,8 +200,8 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
         int sheepCount = 0;
         int horseCount = 0;
         Random random = new Random();
-        if(animals.size() < animalsSize && animals.size() >= 2){
-            for(int i = 0; i < animals.size(); i++) {
+        if (animals.size() < animalsSize && animals.size() >= 2) {
+            for (int i = 0; i < animals.size(); i++) {
                 if (animals.get(i).getType().equalsIgnoreCase("Sheep")) {
                     sheepCount++;
                 } else if (animals.get(i).getType().equalsIgnoreCase("Horse")) {
@@ -213,36 +211,36 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
                 }
             }
 
-                int cowsPair = cowCount/2;
-                int sheepPair = sheepCount/2;
-                int horsePair = horseCount/2;
-                if(cowsPair > 0){
-                    for(int x = 0; x < cowsPair; x++){
-                        if(random.nextInt(2) == 1){
-                            System.out.println("A pair of cows on " + this.name + " had a calf. +1 cow");
-                            tempAnimal = factory.createAnimal(1);
-                            animals.add(tempAnimal);
-                            register(tempAnimal);
+            int cowsPair = cowCount / 2;
+            int sheepPair = sheepCount / 2;
+            int horsePair = horseCount / 2;
+            if (cowsPair > 0) {
+                for (int x = 0; x < cowsPair; x++) {
+                    if (random.nextInt(2) == 1) {
+                        System.out.println("A pair of cows on " + this.name + " had a calf. +1 cow");
+                        tempAnimal = factory.createAnimal(1);
+                        animals.add(tempAnimal);
+                        register(tempAnimal);
 
-                        }
                     }
-
                 }
-                if(sheepPair > 0){
-                    for(int x = 0; x < sheepPair; x++){
-                        if(random.nextInt(2) == 1){
-                            System.out.println("A pair of Sheep on " + this.name + " had a lamb. +1 sheep");
-                            tempAnimal = factory.createAnimal(2);
-                            animals.add(tempAnimal);
-                            register(tempAnimal);
 
-                        }
+            }
+            if (sheepPair > 0) {
+                for (int x = 0; x < sheepPair; x++) {
+                    if (random.nextInt(2) == 1) {
+                        System.out.println("A pair of Sheep on " + this.name + " had a lamb. +1 sheep");
+                        tempAnimal = factory.createAnimal(2);
+                        animals.add(tempAnimal);
+                        register(tempAnimal);
+
                     }
-
                 }
-            if(horsePair > 0){
-                for(int x = 0; x < horsePair; x++){
-                    if(random.nextInt(2) == 1){
+
+            }
+            if (horsePair > 0) {
+                for (int x = 0; x < horsePair; x++) {
+                    if (random.nextInt(2) == 1) {
                         System.out.println("A pair of Horses on " + this.name + " had a foal. +1 horse");
                         tempAnimal = factory.createAnimal(0);
                         animals.add(tempAnimal);
@@ -253,20 +251,16 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
 
             }
 
-            }
-
-
-
-
+        }
 
 
     }
 
     private void checkUpgrade() { //if the farm currency is greater than 5000, then it is automatically upgraded.
-        if(currency >= 5000){
+        if (currency >= 5000) {
             farmerSize += 5;
             animalsSize += 5;
-            System.out.println("Farm " + this.name + "has been upgraded: Animal Capacity: " +animalsSize + " farmer capacity: " + farmerSize);
+            System.out.println("Farm " + this.name + "has been upgraded: Animal Capacity: " + animalsSize + " farmer capacity: " + farmerSize);
         }
     }
 
@@ -338,10 +332,14 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
         return this.currency;
     }
 
+    @Override
+    public void setCurrency(int newValue) {
+        this.currency = newValue;
+    }
 
     public int sell(Animal animal) { //sells the animals products related to all animals on the farm (wool, milk, stamina)
         int price = animal.getInventory() * 30;
-        System.out.println("A " + animal.getType() + "'s" + animal.getProductType() +  " has been used for " + price + " on " + this.name);
+        System.out.println("A " + animal.getType() + "'s" + animal.getProductType() + " has been used for " + price + " on " + this.name);
         animal.setInventory(0);
         return price;
     }
@@ -357,11 +355,6 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
     }
 
     @Override
-    public void setCurrency(int newValue) {
-        this.currency = newValue;
-    }
-
-    @Override
     public int getCycle() { //return the cycle
         return 0;
     }
@@ -372,11 +365,6 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
     }
 
 
-
-
-
-
-
     @Override
     public void checkInvetoryOnAllFarms() { //runs the daytime loop on all farms using the observer.
         runInventory();
@@ -385,12 +373,12 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
     @Override
     public void setNight() { //runs at night to release predators
         Random random = new Random();
-        if(predators.size() < predatorSize){
-            if(random.nextInt(5) == 4){
+        if (predators.size() < predatorSize) {
+            if (random.nextInt(5) == 4) {
                 addPredator();
             }
         }
-        if(predators.size() > 0) { //determins if a predator is the right type to kill animals on this type of farm, and there is
+        if (predators.size() > 0) { //determins if a predator is the right type to kill animals on this type of farm, and there is
             //a chance the the predator can kill the animal.
             for (int i = 0; i < predators.size(); i++) {
                 if (predators.get(i).getType().equalsIgnoreCase("Coyotes")) {
@@ -398,7 +386,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
                     if (chance < (6 + predators.get(i).getSkillLevel())) {
                         if (animals.size() > 0) {
                             System.out.println("a pack of coyotes have gotten an animal on " + this.name);
-                            Animal tempAnimal = animals.get(animals.size()-1);
+                            Animal tempAnimal = animals.get(animals.size() - 1);
                             grabber.unregister(tempAnimal);
                             animals.remove(tempAnimal);
                             System.out.println("Animals remaining: " + animals.size());
@@ -409,13 +397,13 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
             }
         }
 
-        if(predators.size() > 0){ //determines if a predator has been killed on a farm
+        if (predators.size() > 0) { //determines if a predator has been killed on a farm
             int chance = random.nextInt(20);
-            if(chance == 1){
+            if (chance == 1) {
                 System.out.println("a predator has been killed on : " + this.name + "" +
-                        "\n Predators remaining: " + (predators.size()-1));
-                predGrapper.unregsiter(predators.get(predators.size()-1));
-                predators.remove(predators.get(predators.size()-1));
+                        "\n Predators remaining: " + (predators.size() - 1));
+                predGrapper.unregsiter(predators.get(predators.size() - 1));
+                predators.remove(predators.get(predators.size() - 1));
 
             }
         }
@@ -429,7 +417,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
         PredatorFactory pFactory = new PredatorFactory();
         Predator predator;
         int chance = random.nextInt(4);
-        switch (chance){
+        switch (chance) {
 
             case 0:
                 predator = pFactory.createPredator(0);
@@ -449,7 +437,8 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
                 predators.add(predator);
                 predGrapper.register(predator);
                 break;
-
+            default:
+                throw new IllegalStateException("Unexpected value: " + chance);
         }
 
     }

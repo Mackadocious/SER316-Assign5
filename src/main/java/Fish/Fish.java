@@ -9,11 +9,11 @@ public interface Fish extends FishObserver {
 
     int getInventory();
 
+    void setInventory(int p);
+
     String getType();
 
     String getProductType();
-
-    void setInventory(int p);
 
     int getLife();
 

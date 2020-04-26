@@ -7,7 +7,7 @@ public interface Animal extends AnimalObserver {
     /**
      * Gets sick.
      *
-     * @return  sick
+     * @return sick
      */
     boolean getSick();
 
@@ -32,6 +32,13 @@ public interface Animal extends AnimalObserver {
     int getInventory();
 
     /**
+     * Sets inventory.
+     *
+     * @param p the p
+     */
+    void setInventory(int p);
+
+    /**
      * Gets type.
      *
      * @return the type
@@ -44,13 +51,6 @@ public interface Animal extends AnimalObserver {
      * @return the product type
      */
     String getProductType();
-
-    /**
-     * Sets inventory.
-     *
-     * @param p the p
-     */
-    void setInventory(int p);
 
     /**
      * Gets life.

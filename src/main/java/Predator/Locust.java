@@ -6,18 +6,18 @@ package Predator;
 public class Locust implements Predator {
 
     /**
-     * The Skill level.
-     */
-    int skillLevel;
-    /**
      * The Type.
      */
     final String TYPE = "Locust";
+    /**
+     * The Skill level.
+     */
+    int skillLevel;
 
     /**
      * Instantiates a new Locust.
      */
-    public Locust(){
+    public Locust() {
         skillLevel = 1;
     }
 

@@ -1,7 +1,5 @@
 package Predator;
 
-import Animal.Animal;
-
 /**
  * The type Predator factory.
  */

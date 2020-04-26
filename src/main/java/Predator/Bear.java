@@ -3,20 +3,20 @@ package Predator;
 /**
  * The type Bear.
  */
-public class Bear implements Predator{
-    /**
-     * The Skill level.
-     */
-    int skillLevel;
+public class Bear implements Predator {
     /**
      * The Type.
      */
     final String TYPE = "Bears";
+    /**
+     * The Skill level.
+     */
+    int skillLevel;
 
     /**
      * Instantiates a new Bear.
      */
-    public Bear(){
+    public Bear() {
         skillLevel = 1;
     }
 

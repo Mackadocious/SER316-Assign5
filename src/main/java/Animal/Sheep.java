@@ -39,7 +39,7 @@ public class Sheep implements Animal {
     }
 
     public void setInventoryCount() {
-        if(life > 2 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 2 days.
+        if (life > 2 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 2 days.
             this.wool += getRandomCount(20);
         }
     }
@@ -50,6 +50,11 @@ public class Sheep implements Animal {
     }
 
     @Override
+    public void setInventory(int p) {
+        this.wool = p;
+    }
+
+    @Override
     public String getType() {
         return this.TYPE;
     }
@@ -57,11 +62,6 @@ public class Sheep implements Animal {
     @Override
     public String getProductType() {
         return this.PRODUCT;
-    }
-
-    @Override
-    public void setInventory(int p) {
-        this.wool = p;
     }
 
     @Override
@@ -90,6 +90,7 @@ public class Sheep implements Animal {
     public boolean getSick() {
         return this.sick;
     }
+
     @Override
     public void addToInventory() {
         Random random = new Random();

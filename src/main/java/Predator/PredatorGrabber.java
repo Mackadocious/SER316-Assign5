@@ -1,13 +1,11 @@
 package Predator;
 
-import Farms.FarmObserver;
-
 import java.util.ArrayList;
 
 /**
  * The type Predator grabber.
  */
-public class PredatorGrabber implements PredatorSubject{
+public class PredatorGrabber implements PredatorSubject {
 
     private ArrayList<PredatorObserver> observers;
 
@@ -23,7 +21,7 @@ public class PredatorGrabber implements PredatorSubject{
      * Notify increment skill level.
      */
     public void notifyIncrementSkillLevel() {
-        for(int i = 0; i < observers.size(); i++){
+        for (int i = 0; i < observers.size(); i++) {
             observers.get(i).incrementPreadtorSkillLevel();
         }
     }

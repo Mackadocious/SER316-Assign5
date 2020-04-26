@@ -39,7 +39,7 @@ public class Cow implements Animal {
     }
 
     public void setInventoryCount() {
-        if(life > 2 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 2 days.
+        if (life > 2 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 2 days.
             this.milk += getRandomCount(10);
         }
     }
@@ -48,13 +48,14 @@ public class Cow implements Animal {
     public int getInventory() {
         return this.milk;
     }
-    public String getProductType() {
-        return this.PRODUCT;
-    }
 
     @Override
     public void setInventory(int p) {
         this.milk = p;
+    }
+
+    public String getProductType() {
+        return this.PRODUCT;
     }
 
     @Override

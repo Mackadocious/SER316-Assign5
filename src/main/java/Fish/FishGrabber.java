@@ -12,6 +12,7 @@ public class FishGrabber implements FishSubject {
         observers = new ArrayList<FishObserver>();
 
     }
+
     @Override
     public void register(FishObserver newObserver) {
         observers.add(newObserver);
@@ -25,6 +26,7 @@ public class FishGrabber implements FishSubject {
         }
 
     }
+
     @Override
     public void notifyOfWell() {
         Random random = new Random();
@@ -39,18 +41,21 @@ public class FishGrabber implements FishSubject {
         }
 
     }
+
     @Override
     public void notifyOfRemoveLife() {
-        for(int i= 0; i < observers.size(); i++){
+        for (int i = 0; i < observers.size(); i++) {
             observers.get(i).removeLife();
         }
     }
+
     @Override
     public void notfiyOfAddToInventory() {
-        for(int i = 0; i < observers.size(); i++){
+        for (int i = 0; i < observers.size(); i++) {
             observers.get(i).addToInventory();
         }
     }
+
     @Override
     public void unregister(FishObserver o) {
         observers.remove(observers.indexOf(o));

@@ -4,7 +4,7 @@ package Crops;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class CropsGrabber implements CropsSubject{
+public class CropsGrabber implements CropsSubject {
 
     private ArrayList<CropsObserver> observers;
 
@@ -12,6 +12,7 @@ public class CropsGrabber implements CropsSubject{
         observers = new ArrayList<CropsObserver>();
 
     }
+
     @Override
     public void register(CropsObserver newObserver) {
         observers.add(newObserver);
@@ -25,6 +26,7 @@ public class CropsGrabber implements CropsSubject{
         }
 
     }
+
     @Override
     public void notifyOfWell() {
         Random random = new Random();
@@ -39,18 +41,21 @@ public class CropsGrabber implements CropsSubject{
         }
 
     }
+
     @Override
     public void notifyOfRemoveLife() {
-        for(int i= 0; i < observers.size(); i++){
+        for (int i = 0; i < observers.size(); i++) {
             observers.get(i).removeLife();
         }
     }
+
     @Override
     public void notfiyOfAddToInventory() {
-        for(int i = 0; i < observers.size(); i++){
+        for (int i = 0; i < observers.size(); i++) {
             observers.get(i).addToInventory();
         }
     }
+
     @Override
     public void unregister(CropsObserver o) {
         observers.remove(observers.indexOf(o));

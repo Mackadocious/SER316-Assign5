@@ -1,8 +1,6 @@
 package Farms;
 
-import Animal.Animal;
 import Farmers.Farmer;
-import Predator.Predator;
 
 import java.util.ArrayList;
 
@@ -45,14 +43,12 @@ public interface Farm extends FarmObserver {
      * @return the int
      */
 
-
-
+    void setCurrency(int newValue);
 
     /**
      * Generate farmer currency.
      */
     void generateFarmerCurrency();
-    void setCurrency(int newValue);
 
     /**
      * Gets cycle.

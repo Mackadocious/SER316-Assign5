@@ -115,14 +115,14 @@ public final class GameSingleton implements FarmSubject {
     }
 
     private void checkForUpgrades() {
-        for(int i = 0; i < farms.size(); i++){
+        for (int i = 0; i < farms.size(); i++) {
             ArrayList<Farmer> farmers = farms.get(i).getFarmers();
-            if(farms.get(i).getCurrency() > 1000 && farmers.size() == 10){
+            if (farms.get(i).getCurrency() > 1000 && farmers.size() == 10) {
                 System.out.println(farms.get(i).getName() + " has bought a new farm. -1000 currency, -3 farmers");
-                farms.get(i).setCurrency(farms.get(i).getCurrency()-500);
-                farmers.remove(farmers.size()-1);
-                farmers.remove(farmers.size()-1);
-                farmers.remove(farmers.size()-1);
+                farms.get(i).setCurrency(farms.get(i).getCurrency() - 500);
+                farmers.remove(farmers.size() - 1);
+                farmers.remove(farmers.size() - 1);
+                farmers.remove(farmers.size() - 1);
                 Farm farm = chooseFarm();
                 register(farm);
                 farms.add(farm);

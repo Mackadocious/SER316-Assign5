@@ -24,7 +24,7 @@ public class Tuna implements Fish {
     }
 
     public void setInventoryCount() {
-        if(life > 3 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 3 days.
+        if (life > 3 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 3 days.
             this.tunaCaviar += getRandomCount(20);
         }
     }
@@ -35,6 +35,11 @@ public class Tuna implements Fish {
     }
 
     @Override
+    public void setInventory(int p) {
+        this.tunaCaviar = p;
+    }
+
+    @Override
     public String getType() {
         return this.TYPE;
     }
@@ -42,11 +47,6 @@ public class Tuna implements Fish {
     @Override
     public String getProductType() {
         return this.PRODUCT;
-    }
-
-    @Override
-    public void setInventory(int p) {
-        this.tunaCaviar = p;
     }
 
     @Override
@@ -72,10 +72,10 @@ public class Tuna implements Fish {
     }
 
 
-
     public boolean getDiseased() {
         return this.diseased;
     }
+
     @Override
     public void addToInventory() {
         Random random = new Random();
