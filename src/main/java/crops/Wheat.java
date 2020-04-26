@@ -9,11 +9,11 @@ public class Wheat implements Crops {
     /**
      * The Type.
      */
-    final String type = "Wheat";
+    static final String type = "Wheat";
     /**
      * The Product.
      */
-    final String product = "Wheat bails";
+    static final String product = "Wheat bails";
     /**
      * The Diseased.
      */

@@ -9,15 +9,17 @@ public class Horse implements Animal {
     /**
      * The Type.
      */
-    final String type = "Horse";
+    static final String type = "Horse";
     /**
      * The Product.
      */
-    final String product = "Stamina";
+    static final String product = "Stamina";
     /**
      * The Life.
      */
-    int life = 0;
+    private int life;
+
+
     /**
      * The Sick.
      */
@@ -51,7 +53,7 @@ public class Horse implements Animal {
      */
 
     public void setInventoryCount() {
-        if (life < 12 && this.life % 2 == 0) { //checks to see if they're old
+        if (this.life > 2 && this.life % 2 == 0) { //checks to see if they're old
             // enough to produce product, and only produces every 2 days.
             this.stamina += getRandomCount(50);
         }
@@ -110,5 +112,18 @@ public class Horse implements Animal {
 
         this.stamina += random.nextInt(30);
         System.out.println(this.type + "inventory: " + this.getInventory());
+    }
+
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public void setSick(boolean sick) {
+        this.sick = sick;
+    }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 }

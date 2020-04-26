@@ -1,7 +1,5 @@
 package farmers;
 
-import java.util.Random;
-
 /**
  * The type Animal farmer.
  */
@@ -9,22 +7,17 @@ public class AnimalFarmer implements Farmer {
     /**
      * The Type.
      */
-    public final String type = "animal";
+    public static final String type = "animal";
     /**
      * The Skill.
      */
     int skill;
 
     /**
-     * The Random.
-     */
-    Random random;
-
-    /**
      * Instantiates a new Animal farmer.
      */
+
     public AnimalFarmer() {
-        random = new Random();
 
 
     }

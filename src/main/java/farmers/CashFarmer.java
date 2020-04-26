@@ -11,22 +11,17 @@ public class CashFarmer implements Farmer {
     /**
      * The Type.
      */
-    public final String type = "cash";
+    public static final String type = "cash";
     /**
      * The Skill.
      */
     int skill;
 
     /**
-     * The Random.
-     */
-    Random random;
-
-    /**
      * Instantiates a new Cash farmer.
      */
+
     public CashFarmer() {
-        random = new Random();
 
     }
 

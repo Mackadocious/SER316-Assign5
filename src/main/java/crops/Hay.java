@@ -9,11 +9,11 @@ public class Hay implements Crops {
     /**
      * The Type.
      */
-    final String type = "Hay";
+    static final String type = "Hay";
     /**
      * The Product.
      */
-    final String product = "hay bails";
+    static final String product = "hay bails";
     /**
      * The Diseased.
      */

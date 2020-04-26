@@ -12,25 +12,18 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * The type Game singleton.
- */
+* The type Game singleton.
+*/
 public final class GameSingleton implements FarmSubject {
     /**
      * The constant instance.
      */
-    public static GameSingleton instance = null;
+    private static GameSingleton instance = null;
     /**
      * The Farm grabber.
      */
     FarmGrabber farmGrabber = new FarmGrabber();
-    /**
-     * The Log.
-     */
-    String log = "";
-    /**
-     * The Day.
-     */
-    boolean day = true;
+
     /**
      * The Farms.
      */
@@ -47,8 +40,6 @@ public final class GameSingleton implements FarmSubject {
      * The Day cycle count.
      */
     int dayCycleCount;
-    private FarmBuilder farmBuilder;
-
 
     private GameSingleton() {
         farms = new ArrayList<>();
@@ -102,14 +93,9 @@ public final class GameSingleton implements FarmSubject {
     void runGame() {
         for (int loop = 0; loop < 10; loop++) { //cycle loop
             dayCycleCount++;
-
             notifyCheckInventory();
-            day = false; //start night cycle
             nightCycleCount++;
-
             farmGrabber.setNight(); //sets night and starts predators on all farms
-
-            day = true; //end night cycle
             cycleCount++;
             checkForUpgrades();
             System.out.println("End Cycle\n----------------------");

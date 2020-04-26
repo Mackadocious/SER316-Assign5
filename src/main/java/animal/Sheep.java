@@ -9,11 +9,24 @@ public class Sheep implements Animal {
     /**
      * The Type.
      */
-    final String type = "Sheep";
+    static final String type = "Sheep";
     /**
      * The Product.
      */
-    final String product = "Wool";
+    static final String product = "Wool";
+
+    public void setSick(boolean sick) {
+        this.sick = sick;
+    }
+
+    public void setWool(int wool) {
+        this.wool = wool;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
     /**
      * The Sick.
      */

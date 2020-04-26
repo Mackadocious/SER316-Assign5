@@ -9,22 +9,18 @@ public class FishFarmer implements Farmer {
     /**
      * The Type.
      */
-    public final String type = "fish";
+    public static final String type = "fish";
     /**
      * The Skill.
      */
     int skill;
 
-    /**
-     * The Random.
-     */
-    Random random;
 
     /**
      * Instantiates a new Crop farmer.
      */
+
     public FishFarmer() {
-        random = new Random();
 
 
     }

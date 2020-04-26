@@ -67,4 +67,7 @@ public class FishGrabber implements FishSubject {
 
     }
 
+    public ArrayList<FishObserver> getObservers() {
+        return observers;
+    }
 }

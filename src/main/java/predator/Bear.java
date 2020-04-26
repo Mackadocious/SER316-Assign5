@@ -7,7 +7,7 @@ public class Bear implements Predator {
     /**
      * The Type.
      */
-    final String type = "Bears";
+    static final String type = "Bears";
     /**
      * The Skill level.
      */

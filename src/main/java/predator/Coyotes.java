@@ -7,7 +7,7 @@ public class Coyotes implements Predator {
     /**
      * The Type.
      */
-    final String type = "Coyotes";
+    static final String type = "Coyotes";
     /**
      * The Skill level.
      */

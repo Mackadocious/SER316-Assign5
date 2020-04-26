@@ -7,7 +7,13 @@ import java.util.Random;
  * The type Animal grabber.
  */
 public class AnimalGrabber implements AnimalSubject {
+
+
     private ArrayList<AnimalObserver> observers;
+
+    public ArrayList<AnimalObserver> getObservers() {
+        return observers;
+    }
 
     /**
      * Instantiates a new Animal grabber.

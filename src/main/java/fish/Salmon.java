@@ -9,19 +9,34 @@ public class Salmon implements Fish {
     /**
      * The Type.
      */
-    final String type = "Cod";
+    static final String type = "salmon";
     /**
      * The Product.
      */
-    final String product = "Salmon Caviar";
+    static final String product = "Salmon Caviar";
+
+    public void setDiseased(boolean diseased) {
+        this.diseased = diseased;
+    }
+
     /**
      * The Diseased.
      */
     boolean diseased = false;
+
+    public void setSalmonCaviar(int salmonCaviar) {
+        this.salmonCaviar = salmonCaviar;
+    }
+
     /**
      * The Salmon caviar.
      */
     int salmonCaviar = 0;
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
     private int life;
 
     /**

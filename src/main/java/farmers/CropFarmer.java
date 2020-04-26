@@ -9,22 +9,18 @@ public class CropFarmer implements Farmer {
     /**
      * The Type.
      */
-    public final String type = "crops";
+    public static final String type = "crops";
     /**
      * The Skill.
      */
     int skill;
 
-    /**
-     * The Random.
-     */
-    Random random;
 
     /**
      * Instantiates a new Crop farmer.
      */
+
     public CropFarmer() {
-        random = new Random();
 
 
     }

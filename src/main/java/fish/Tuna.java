@@ -9,19 +9,30 @@ public class Tuna implements Fish {
     /**
      * The Type.
      */
-    final String type = "Tuna";
+    static final String type = "Tuna";
     /**
      * The Typeproduct t.
      */
-    final String typeproductT = "Tuna Caviar";
+    static final String typeproductT = "Tuna Caviar";
     /**
      * The Diseased.
      */
     boolean diseased = false;
+
+
     /**
      * The Tuna caviar.
      */
     int tunaCaviar = 0;
+
+    public void setDiseased(boolean diseased) {
+        this.diseased = diseased;
+    }
+
+    public void setTunaCaviar(int tunaCaviar) {
+        this.tunaCaviar = tunaCaviar;
+    }
+
     private int life;
 
     /**
@@ -30,6 +41,10 @@ public class Tuna implements Fish {
     public Tuna() {
         setInventoryCount();
         life = 13;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
     }
 
     @Override
@@ -52,7 +67,7 @@ public class Tuna implements Fish {
      */
 
     public void setInventoryCount() {
-        if (life > 3 && this.life % 2 == 0) {
+        if (life > 2 && this.life % 3 == 0) {
             this.tunaCaviar += getRandomCount(20);
         }
     }

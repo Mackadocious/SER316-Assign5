@@ -9,15 +9,28 @@ public class Cod implements Fish {
     /**
      * The Type.
      */
-    final String type = "Cod";
+    static final String type = "Cod";
     /**
      * The Product.
      */
-    final String product = "Cod Caviar";
+    static final String product = "Cod Caviar";
     /**
      * The Diseased.
      */
     boolean diseased = false;
+
+    public void setDiseased(boolean diseased) {
+        this.diseased = diseased;
+    }
+
+    public void setCodCaviar(int codCaviar) {
+        this.codCaviar = codCaviar;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
     /**
      * The Cod caviar.
      */
@@ -50,7 +63,7 @@ public class Cod implements Fish {
      */
 
     public void setInventoryCount() {
-        if (life > 3 && this.life % 2 == 0) { //checks to see if they're old enough
+        if (life > 2 && this.life % 3 == 0) { //checks to see if they're old enough
             // to produce product, and only produces every 3 days.
             this.codCaviar += getRandomCount(20);
         }

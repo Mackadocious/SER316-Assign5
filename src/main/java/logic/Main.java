@@ -7,7 +7,7 @@ import java.util.Scanner;
  * The type Main.
  */
 class Main {
-    private static GameSingleton game = null;
+    protected static GameSingleton game = null;
     private static boolean playing;
 
 
@@ -25,7 +25,7 @@ class Main {
     }
 
     private static void gameLoop() {
-        Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in, "UTF-8");
 
 
         game = GameSingleton.getInstance();

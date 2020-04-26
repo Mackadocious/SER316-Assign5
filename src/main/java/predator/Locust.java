@@ -8,7 +8,7 @@ public class Locust implements Predator {
     /**
      * The Type.
      */
-    final String type = "Locust";
+    static final String type = "Locust";
     /**
      * The Skill level.
      */

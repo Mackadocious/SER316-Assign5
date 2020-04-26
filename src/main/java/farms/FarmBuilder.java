@@ -1,18 +1,14 @@
 package farms;
 
-import java.util.Random;
-
 /**
  * The type Farm builder.
  */
 public class FarmBuilder {
-    /**
-     * The Random.
-     */
-    static Random random;
+
     /**
      * The Farm.
      */
+
     static Farm farm;
     private static int farmCount;
 
@@ -20,8 +16,8 @@ public class FarmBuilder {
     /**
      * Instantiates a new Farm builder.
      */
+
     public FarmBuilder() {
-        random = new Random();
 
     }
 
@@ -31,6 +27,7 @@ public class FarmBuilder {
      * @param type the type
      * @return the farm
      */
+
     public static Farm generateFarm(String type) {
         farm = setType(type);
         farmCount++;

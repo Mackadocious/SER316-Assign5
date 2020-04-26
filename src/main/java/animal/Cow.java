@@ -9,11 +9,11 @@ public class Cow implements Animal {
     /**
      * The Type.
      */
-    final String type = "Cow";
+    static final String type = "Cow";
     /**
      * The Product.
      */
-    final String product = "Milk";
+    static final String product = "Milk";
     /**
      * The Sick.
      */
@@ -22,6 +22,19 @@ public class Cow implements Animal {
      * The Milk.
      */
     int milk = 0;
+
+    public void setSick(boolean sick) {
+        this.sick = sick;
+    }
+
+    public void setMilk(int milk) {
+        this.milk = milk;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
     private int life;
 
     /**
@@ -48,7 +61,7 @@ public class Cow implements Animal {
      */
 
     public void setInventoryCount() {
-        if (life > 2 && this.life % 2 == 0) {
+        if (this.life > 2 && this.life % 2 == 0) {
             this.milk += getRandomCount(10);
         }
     }

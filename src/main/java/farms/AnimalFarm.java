@@ -34,6 +34,11 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
      * The Farmer size.
      */
     int farmerSize;
+
+    public void setAnimalsSize(int animalsSize) {
+        this.animalsSize = animalsSize;
+    }
+
     /**
      * The Animals size.
      */
@@ -76,6 +81,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
      * The Currency.
      */
     int currency;
+
 
     /**
      * Instantiates a new Animal farm.
@@ -209,7 +215,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
     }
     //creates babies between two animals of the same type based on probability
 
-    private void checkForBabies() {
+    public void checkForBabies() {
         Animal tempAnimal;
         int cowCount = 0;
         int sheepCount = 0;
@@ -459,7 +465,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
         Random random = new Random();
         PredatorFactory predFactory = new PredatorFactory();
         Predator predator;
-        int chance = random.nextInt(4);
+        int chance = random.nextInt(3);
         switch (chance) {
 
             case 0:
@@ -500,5 +506,9 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
     @Override
     public void incrementPreadtorSkillLevel() {
 
+    }
+
+    public void setPredatorSize(int predatorSize) {
+        this.predatorSize = predatorSize;
     }
 }

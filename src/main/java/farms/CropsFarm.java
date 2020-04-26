@@ -34,6 +34,8 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
      * The Farmer size.
      */
     int farmerSize;
+
+
     /**
      * The Crops size.
      */
@@ -210,7 +212,7 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
     }
     //creates new fields of crops of the same type based on probability
 
-    private void checkForBabies() {
+    public void checkForBabies() {
         Crops tempCrops;
         int barleyCount = 0;
         int wheatCount = 0;
@@ -459,7 +461,7 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
         Random random = new Random();
         PredatorFactory predFactory = new PredatorFactory();
         Predator predator;
-        int chance = random.nextInt(4);
+        int chance = random.nextInt(3);
         switch (chance) {
 
             case 0:
@@ -500,5 +502,10 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
     @Override
     public void incrementPreadtorSkillLevel() {
 
+    }
+
+
+    public void setCropsSize(int cropsSize) {
+        this.cropsSize = cropsSize;
     }
 }

@@ -9,11 +9,11 @@ public class Barley implements Crops {
     /**
      * The Type.
      */
-    final String type = "Barley";
+    static final String type = "Barley";
     /**
      * The Product.
      */
-    final String product = "barley bails";
+    static final String product = "barley bails";
     /**
      * The Diseased.
      */

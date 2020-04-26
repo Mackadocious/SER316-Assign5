@@ -34,6 +34,9 @@ public class FishFarm implements Farm, FishSubject, FarmObserver, PredatorObserv
      * The Farmer size.
      */
     int farmerSize;
+
+
+
     /**
      * The Fishs size.
      */
@@ -208,7 +211,7 @@ public class FishFarm implements Farm, FishSubject, FarmObserver, PredatorObserv
         }
     }
 
-    private void checkForBabies() { //creates eggs between two fish
+    public void checkForBabies() { //creates eggs between two fish
         // of the same type based on probability
         Fish tempFish;
         int tunaCount = 0;
@@ -458,7 +461,7 @@ public class FishFarm implements Farm, FishSubject, FarmObserver, PredatorObserv
         Random random = new Random();
         PredatorFactory predFactory = new PredatorFactory();
         Predator predator;
-        int chance = random.nextInt(4);
+        int chance = random.nextInt(3);
         switch (chance) {
 
             case 0:
@@ -483,6 +486,9 @@ public class FishFarm implements Farm, FishSubject, FarmObserver, PredatorObserv
                 throw new IllegalStateException("Unexpected value: " + chance);
         }
 
+    }
+    public void setFishesSize(int fishesSize) {
+        this.fishesSize = fishesSize;
     }
 
     @Override
