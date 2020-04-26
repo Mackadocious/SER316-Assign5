@@ -6,7 +6,7 @@ public class Tuna implements Fish {
     final String TYPE = "Tuna";
     final String PRODUCT = "Tuna Caviar";
     boolean diseased = false;
-    int hayBails = 0;
+    int tunaCaviar = 0;
     private int life;
 
     public Tuna() {
@@ -25,13 +25,13 @@ public class Tuna implements Fish {
 
     public void setInventoryCount() {
         if(life > 3 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 3 days.
-            this.hayBails += getRandomCount(20);
+            this.tunaCaviar += getRandomCount(20);
         }
     }
 
     @Override
     public int getInventory() {
-        return this.hayBails;
+        return this.tunaCaviar;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Tuna implements Fish {
 
     @Override
     public void setInventory(int p) {
-        this.hayBails = p;
+        this.tunaCaviar = p;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class Tuna implements Fish {
     public void addToInventory() {
         Random random = new Random();
 
-        this.hayBails += random.nextInt(30);
+        this.tunaCaviar += random.nextInt(30);
         System.out.println(this.TYPE + "inventory: " + this.getInventory());
     }
 }

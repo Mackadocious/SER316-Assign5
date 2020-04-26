@@ -6,7 +6,7 @@ public class Cod implements Fish {
     final String TYPE = "Cod";
     final String PRODUCT = "Cod Caviar";
     boolean diseased = false;
-    int WheatBails = 0;
+    int CodCaviar = 0;
     private int life;
 
     public Cod() {
@@ -25,13 +25,13 @@ public class Cod implements Fish {
 
     public void setInventoryCount() {
         if(life > 3 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 3 days.
-            this.WheatBails += getRandomCount(20);
+            this.CodCaviar += getRandomCount(20);
         }
     }
 
     @Override
     public int getInventory() {
-        return this.WheatBails;
+        return this.CodCaviar;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Cod implements Fish {
 
     @Override
     public void setInventory(int p) {
-        this.WheatBails = p;
+        this.CodCaviar = p;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class Cod implements Fish {
     public void addToInventory() {
         Random random = new Random();
 
-        this.WheatBails += random.nextInt(30);
+        this.CodCaviar += random.nextInt(30);
         System.out.println(this.TYPE + "inventory: " + this.getInventory());
     }
 }

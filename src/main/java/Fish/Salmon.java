@@ -6,7 +6,7 @@ public class Salmon implements Fish {
     final String TYPE = "Cod";
     final String PRODUCT = "Salmon Caviar";
     boolean diseased = false;
-    int barleyBails = 0;
+    int salmonCaviar = 0;
     private int life;
 
     public Salmon() {
@@ -25,13 +25,13 @@ public class Salmon implements Fish {
 
     public void setInventoryCount() {
         if(life > 3 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 3 days.
-            this.barleyBails += getRandomCount(20);
+            this.salmonCaviar += getRandomCount(20);
         }
     }
 
     @Override
     public int getInventory() {
-        return this.barleyBails;
+        return this.salmonCaviar;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Salmon implements Fish {
 
     @Override
     public void setInventory(int p) {
-        this.barleyBails = p;
+        this.salmonCaviar = p;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class Salmon implements Fish {
     public void addToInventory() {
         Random random = new Random();
 
-        this.barleyBails += random.nextInt(30);
+        this.salmonCaviar += random.nextInt(30);
         System.out.println(this.TYPE + "inventory: " + this.getInventory());
     }
 }

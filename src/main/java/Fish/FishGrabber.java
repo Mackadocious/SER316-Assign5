@@ -15,7 +15,7 @@ public class FishGrabber implements FishSubject {
     @Override
     public void register(FishObserver newObserver) {
         observers.add(newObserver);
-        System.out.println("Crops Observer Count " + observers.size()); //TEMPORARY
+        System.out.println("Fish Observer Count " + observers.size()); //TEMPORARY
     }
 
     @Override
@@ -31,7 +31,7 @@ public class FishGrabber implements FishSubject {
         for (int i = 0; i < observers.size(); i++) {
             int chance = random.nextInt(2);
             if (chance == 2) {
-                System.out.println("A crop patch has died");
+                System.out.println("A fish patch has died");
                 unregister(observers.get(i));
             } else {
                 observers.get(i).setWell();
