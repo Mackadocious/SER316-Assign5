@@ -1,5 +1,13 @@
 package Predator;
 
+/**
+ * The interface Predator observer.
+ */
 public interface PredatorObserver {
-    void incrementSkillLevel();
+
+
+    /**
+     * Increment preadtor skill level.
+     */
+    void incrementPreadtorSkillLevel();
 }

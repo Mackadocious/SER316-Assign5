@@ -2,9 +2,15 @@ package Farms;
 
 import java.util.ArrayList;
 
+/**
+ * The type Farm grabber.
+ */
 public class FarmGrabber implements FarmSubject {
     private ArrayList<FarmObserver> observers;
 
+    /**
+     * Instantiates a new Farm grabber.
+     */
     public FarmGrabber() {
         observers = new ArrayList<FarmObserver>();
 
@@ -28,6 +34,9 @@ public class FarmGrabber implements FarmSubject {
 
     }
 
+    /**
+     * Set night.
+     */
     public void setNight(){
         for(int i=0; i < observers.size(); i++){
             observers.get(i).setNight();

@@ -2,9 +2,17 @@ package Farmers;
 
 import java.util.Random;
 
+/**
+ * The type Farmer builder.
+ */
 public class FarmerBuilder {
 
 
+    /**
+     * Create farmer farmer.
+     *
+     * @return the farmer
+     */
     public static Farmer createFarmer() {
         Farmer farmer;
         Random random = new Random();

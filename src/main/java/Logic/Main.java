@@ -3,11 +3,20 @@ package Logic;
 import java.util.Scanner;
 
 
+/**
+ * The type Main.
+ */
 class Main {
     private static GameSingleton game = null;
     private static boolean playing;
 
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws InterruptedException the interrupted exception
+     */
     public static void main(String[] args) throws InterruptedException {
         playing = true;
         gameLoop();

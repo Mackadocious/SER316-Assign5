@@ -2,13 +2,31 @@ package Animal;
 
 import java.util.Random;
 
+/**
+ * The type Cow.
+ */
 public class Cow implements Animal {
+    /**
+     * The Type.
+     */
     final String TYPE = "Cow";
+    /**
+     * The Product.
+     */
     final String PRODUCT = "Milk";
+    /**
+     * The Sick.
+     */
     boolean sick = false;
+    /**
+     * The Milk.
+     */
     int milk = 0;
     private int life;
 
+    /**
+     * Instantiates a new Cow.
+     */
     public Cow() {
         setInventoryCount();
         life = 13;

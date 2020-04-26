@@ -7,14 +7,37 @@ import Farmers.FarmerBuilder;
 
 import java.util.ArrayList;
 
+/**
+ * The type Fish farm.
+ */
 public class FishFarm implements Farm, FarmObserver {
+    /**
+     * The Farmers.
+     */
     ArrayList<Farmer> farmers;
+    /**
+     * The Cycle.
+     */
     int cycle;
+    /**
+     * The Name.
+     */
     String name = "";
+    /**
+     * The Type.
+     */
     String type = "Hybrid";
+    /**
+     * The Currency.
+     */
     int currency;
 
 
+    /**
+     * Instantiates a new Fish farm.
+     *
+     * @param s the s
+     */
     public FishFarm(String s) {
         this.name = s;
         cycle = 0;
@@ -59,7 +82,7 @@ public class FishFarm implements Farm, FarmObserver {
         return 0;
     }
 
-    @Override
+
     public int sell(Animal animal) {
         return 0;
     }
@@ -70,6 +93,11 @@ public class FishFarm implements Farm, FarmObserver {
     }
 
     @Override
+    public void setCurrency(int newValue) {
+        this.currency = newValue;
+    }
+
+    @Override
     public int getCycle() {
         return this.cycle;
     }
@@ -77,6 +105,21 @@ public class FishFarm implements Farm, FarmObserver {
     @Override
     public void incrementCycle() {
         this.cycle++;
+    }
+
+    @Override
+    public void addPredator() {
+
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public ArrayList<Farmer> getFarmers() {
+        return this.farmers;
     }
 
 

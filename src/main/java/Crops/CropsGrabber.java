@@ -1,33 +1,23 @@
-package Animal;
+package Crops;
+
 
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * The type Animal grabber.
- */
-public class AnimalGrabber implements AnimalSubject {
-    private ArrayList<AnimalObserver> observers;
+public class CropsGrabber implements CropsSubject{
 
-    /**
-     * Instantiates a new Animal grabber.
-     */
-    public AnimalGrabber() {
-        observers = new ArrayList<AnimalObserver>();
+    private ArrayList<CropsObserver> observers;
+
+    public CropsGrabber() {
+        observers = new ArrayList<CropsObserver>();
 
     }
-    /**
-     * Registers a new animal with the observer
-     */
     @Override
-    public void register(AnimalObserver newObserver) {
+    public void register(CropsObserver newObserver) {
         observers.add(newObserver);
-        System.out.println("Animal Observer Count " + observers.size()); //TEMPORARY
+        System.out.println("Crops Observer Count " + observers.size()); //TEMPORARY
     }
 
-    /**
-     * Notifies all animals that are observers that they are sick.
-     */
     @Override
     public void notifyOfSick() {
         for (int i = 0; i < observers.size(); i++) {
@@ -35,16 +25,13 @@ public class AnimalGrabber implements AnimalSubject {
         }
 
     }
-    /**
-     * Notifies all animals that are observers that they are well
-     */
     @Override
     public void notifyOfWell() {
         Random random = new Random();
         for (int i = 0; i < observers.size(); i++) {
             int chance = random.nextInt(2);
             if (chance == 2) {
-                System.out.println("An animal has died");
+                System.out.println("A crop patch has died");
                 unregister(observers.get(i));
             } else {
                 observers.get(i).setWell();
@@ -52,32 +39,22 @@ public class AnimalGrabber implements AnimalSubject {
         }
 
     }
-    /**
-     * removes a life from all animals every cycle complete
-     */
     @Override
     public void notifyOfRemoveLife() {
         for(int i= 0; i < observers.size(); i++){
             observers.get(i).removeLife();
         }
     }
-    /**
-     * randomly adds to the inventory of all animals that can be used to generate profit for the farm
-     */
     @Override
     public void notfiyOfAddToInventory() {
         for(int i = 0; i < observers.size(); i++){
             observers.get(i).addToInventory();
         }
     }
-    /**
-     * removes an animal observer
-     */
     @Override
-    public void unregister(AnimalObserver o) {
+    public void unregister(CropsObserver o) {
         observers.remove(observers.indexOf(o));
 
     }
-
 
 }

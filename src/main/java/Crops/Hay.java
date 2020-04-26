@@ -1,39 +1,21 @@
-package Animal;
+package Crops;
 
 import java.util.Random;
 
-/**
- * The type Horse.
- */
-public class Horse implements Animal {
-    /**
-     * The Type.
-     */
-    final String TYPE = "Horse";
-    /**
-     * The Product.
-     */
-    final String PRODUCT = "Stamina";
-    /**
-     * The Life.
-     */
-    int life =  0;
-    /**
-     * The Sick.
-     */
-    boolean sick = false;
-    /**
-     * The Stamina.
-     */
-    int stamina = 0;
+public class Hay implements Crops {
+    final String TYPE = "Hay";
+    final String PRODUCT = "hay bails";
+    boolean diseased = false;
+    int hayBails = 0;
+    private int life;
 
-    /**
-     * Instantiates a new Horse.
-     */
-    public Horse() {
+    public Hay() {
         setInventoryCount();
         life = 13;
     }
+
+    @Override
+
 
     public int getRandomCount(int chance) {
         Random random = new Random();
@@ -42,14 +24,14 @@ public class Horse implements Animal {
     }
 
     public void setInventoryCount() {
-        if(life < 12 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 2 days.
-            this.stamina += getRandomCount(50);
+        if(life > 3 && this.life % 2 == 0) { //checks to see if they're old enough to produce product, and only produces every 3 days.
+            this.hayBails += getRandomCount(20);
         }
     }
 
     @Override
     public int getInventory() {
-        return this.stamina;
+        return this.hayBails;
     }
 
     @Override
@@ -64,7 +46,7 @@ public class Horse implements Animal {
 
     @Override
     public void setInventory(int p) {
-        this.stamina = p;
+        this.hayBails = p;
     }
 
     @Override
@@ -75,12 +57,12 @@ public class Horse implements Animal {
 
     @Override
     public void setSick() {
-        this.sick = true;
+        this.diseased = true;
     }
 
     @Override
     public void setWell() {
-        this.sick = false;
+        this.diseased = false;
 
     }
 
@@ -89,15 +71,16 @@ public class Horse implements Animal {
         this.life--;
     }
 
-    @Override
-    public boolean getSick() {
-        return sick;
+
+
+    public boolean getDiseased() {
+        return this.diseased;
     }
     @Override
     public void addToInventory() {
         Random random = new Random();
 
-        this.stamina += random.nextInt(30);
+        this.hayBails += random.nextInt(30);
         System.out.println(this.TYPE + "inventory: " + this.getInventory());
     }
 }
