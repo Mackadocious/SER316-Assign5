@@ -18,7 +18,6 @@ import predator.PredatorGrabber;
 import predator.PredatorObserver;
 
 
-
 /**
  * The type Fish farm.
  */
@@ -366,8 +365,15 @@ public class FishFarm implements Farm, FishSubject, FarmObserver, PredatorObserv
         this.currency = newValue;
     }
 
-    //sells the fish products related to all fish on the farm
-    // (Salmon caviar, Tuna Caviar, Cod Caviar)
+    /**
+     * Sell int.
+     *sells the fish products related to all fish on the farm
+     * (Salmon caviar, Tuna Caviar, Cod Caviar)
+     * @param animal the animal
+     * @return the int
+     */
+
+
     public int sell(Fish animal) {
         int price = animal.getInventory() * 30;
         System.out.println("A " + animal.getType()

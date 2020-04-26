@@ -4,10 +4,16 @@ import java.util.ArrayList;
 
 import java.util.Random;
 
+/**
+ * The type Crops grabber.
+ */
 public class CropsGrabber implements CropsSubject {
 
     private ArrayList<CropsObserver> observers;
 
+    /**
+     * Instantiates a new Crops grabber.
+     */
     public CropsGrabber() {
         observers = new ArrayList<CropsObserver>();
 

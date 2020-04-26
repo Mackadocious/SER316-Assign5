@@ -18,24 +18,70 @@ import predator.PredatorGrabber;
 import predator.PredatorObserver;
 
 
-
+/**
+ * The type Crops farm.
+ */
 public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObserver {
+    /**
+     * The Farmers.
+     */
     ArrayList<Farmer> farmers;
+    /**
+     * The Cycle.
+     */
     int cycle;
+    /**
+     * The Farmer size.
+     */
     int farmerSize;
+    /**
+     * The Crops size.
+     */
     int cropsSize;
+    /**
+     * The Predator size.
+     */
     int predatorSize;
+    /**
+     * The Factory.
+     */
     CropsFactory factory;
+    /**
+     * The Grabber.
+     */
     CropsGrabber grabber = new CropsGrabber();
+    /**
+     * The Pred grapper.
+     */
     PredatorGrabber predGrapper = new PredatorGrabber();
+    /**
+     * The Crops.
+     */
     ArrayList<Crops> crops;
+    /**
+     * The Predators.
+     */
     ArrayList<Predator> predators;
+    /**
+     * The Name.
+     */
     String name = "";
+    /**
+     * The Type.
+     */
     String type = "crops";
 
 
+    /**
+     * The Currency.
+     */
     int currency;
 
+    /**
+     * Instantiates a new Crops farm.
+     *
+     * @param s the s
+     */
     public CropsFarm(String s) {
         crops = new ArrayList<Crops>();
         farmers = new ArrayList<Farmer>();
@@ -79,6 +125,9 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
 
     }
 
+    /**
+     * Add crops.
+     */
     public void addCrops() { //creates random crops and registers with the observer.
 
         Random random = new Random();
@@ -316,8 +365,14 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
         this.currency = newValue;
     }
 
-    //sells the crops products related to all crops on the farm
-    // (wheat bails, barley bails, hay bails)
+    /**
+     * Sell int.
+     *sells the crops products related to all crops on the farm
+     * (wheat bails, barley bails, hay bails)
+     * @param crops the crops
+     * @return the int
+     */
+
     public int sell(Crops crops) {
         int price = crops.getInventory() * 40;
         System.out.println("a " + crops.getType() + " field has been harvest to get"

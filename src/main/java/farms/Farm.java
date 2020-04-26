@@ -38,6 +38,11 @@ public interface Farm extends FarmObserver {
     int getCurrency();
 
 
+    /**
+     * Sets currency.
+     *
+     * @param newValue the new value
+     */
     void setCurrency(int newValue);
 
     /**
@@ -62,8 +67,18 @@ public interface Farm extends FarmObserver {
      */
     void addPredator();
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     String getName();
 
+    /**
+     * Gets farmers.
+     *
+     * @return the farmers
+     */
     ArrayList<Farmer> getFarmers();
 
 

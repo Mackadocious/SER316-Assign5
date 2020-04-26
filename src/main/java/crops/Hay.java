@@ -2,13 +2,31 @@ package crops;
 
 import java.util.Random;
 
+/**
+ * The type Hay.
+ */
 public class Hay implements Crops {
+    /**
+     * The Type.
+     */
     final String type = "Hay";
+    /**
+     * The Product.
+     */
     final String product = "hay bails";
+    /**
+     * The Diseased.
+     */
     boolean diseased = false;
+    /**
+     * The Hay bails.
+     */
     int hayBails = 0;
     private int life;
 
+    /**
+     * Instantiates a new Hay.
+     */
     public Hay() {
         setInventoryCount();
         life = 13;
@@ -16,12 +34,21 @@ public class Hay implements Crops {
 
     @Override
 
+    /**
+     * generates a random number between input and 0.
+     * @param chance top bound for random number
+     * @return int
+     */
 
     public int getRandomCount(int chance) {
         Random random = new Random();
         return random.nextInt(chance);
 
     }
+    /**
+     * //checks to see if they're old
+     * enough to produce product, and only produces every 3 days.
+     */
 
     public void setInventoryCount() {
         //checks to see if they're old enough to produce product, and only produces every 3 days.

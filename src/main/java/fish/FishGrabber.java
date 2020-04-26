@@ -3,10 +3,16 @@ package fish;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * The type Fish grabber.
+ */
 public class FishGrabber implements FishSubject {
 
     private ArrayList<FishObserver> observers;
 
+    /**
+     * Instantiates a new Fish grabber.
+     */
     public FishGrabber() {
         observers = new ArrayList<FishObserver>();
 

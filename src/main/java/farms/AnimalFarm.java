@@ -18,7 +18,6 @@ import predator.PredatorGrabber;
 import predator.PredatorObserver;
 
 
-
 /**
  * The type Animal farm.
  */
@@ -366,6 +365,12 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
     }
     //sells the animals products related to all animals on the farm (wool, milk, stamina)
 
+    /**
+     * Sell int.
+     *
+     * @param animal the animal
+     * @return the int
+     */
     public int sell(Animal animal) {
         int price = animal.getInventory() * 30;
         System.out.println("A " + animal.getType() + "'s"
@@ -379,7 +384,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
     public void generateFarmerCurrency() {
         int animalFarmerCount = 0;
         for (int i = 0; i < farmers.size(); i++) {
-            if (farmers.get(i).getType() == "animal"){
+            if (farmers.get(i).getType() == "animal") {
                 animalFarmerCount++;
             }
 

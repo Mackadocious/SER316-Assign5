@@ -2,13 +2,31 @@ package crops;
 
 import java.util.Random;
 
+/**
+ * The type Barley.
+ */
 public class Barley implements Crops {
+    /**
+     * The Type.
+     */
     final String type = "Barley";
+    /**
+     * The Product.
+     */
     final String product = "barley bails";
+    /**
+     * The Diseased.
+     */
     boolean diseased = false;
+    /**
+     * The Barley bails.
+     */
     int barleyBails = 0;
     private int life;
 
+    /**
+     * Instantiates a new Barley.
+     */
     public Barley() {
         setInventoryCount();
         life = 13;
@@ -16,6 +34,11 @@ public class Barley implements Crops {
 
     @Override
 
+    /**
+     * generates a random number between input and 0.
+     * @param chance top bound for random number
+     * @return int
+     */
 
     public int getRandomCount(int chance) {
         Random random = new Random();
@@ -23,9 +46,13 @@ public class Barley implements Crops {
 
     }
 
+    /**
+     * //checks to see if they're old
+     * enough to produce product, and only produces every 3 days.
+     */
+
     public void setInventoryCount() {
-        if (life > 3 && this.life % 2 == 0) { //checks to see if they're old
-            // enough to produce product, and only produces every 3 days.
+        if (life > 3 && this.life % 2 == 0) {
             this.barleyBails += getRandomCount(20);
         }
     }

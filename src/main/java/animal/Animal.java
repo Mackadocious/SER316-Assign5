@@ -7,7 +7,7 @@ public interface Animal extends AnimalObserver {
     /**
      * Gets sick.
      *
-     * @return sick
+     * @return sick sick
      */
     boolean getSick();
 

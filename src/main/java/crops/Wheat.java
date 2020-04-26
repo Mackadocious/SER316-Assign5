@@ -2,13 +2,31 @@ package crops;
 
 import java.util.Random;
 
+/**
+ * The type Wheat.
+ */
 public class Wheat implements Crops {
+    /**
+     * The Type.
+     */
     final String type = "Wheat";
+    /**
+     * The Product.
+     */
     final String product = "Wheat bails";
+    /**
+     * The Diseased.
+     */
     boolean diseased = false;
+    /**
+     * The Wheat bails.
+     */
     int wheatBails = 0;
     private int life;
 
+    /**
+     * Instantiates a new Wheat.
+     */
     public Wheat() {
         setInventoryCount();
         life = 13;
@@ -16,12 +34,21 @@ public class Wheat implements Crops {
 
     @Override
 
+    /**
+     * generates a random number between input and 0.
+     * @param chance top bound for random number
+     * @return int
+     */
 
     public int getRandomCount(int chance) {
         Random random = new Random();
         return random.nextInt(chance);
 
     }
+    /**
+     * //checks to see if they're old
+     * enough to produce product, and only produces every 3days.
+     */
 
     public void setInventoryCount() {
         if (life > 3 && this.life % 2 == 0) { //checks to see if they're old

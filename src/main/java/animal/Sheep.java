@@ -31,12 +31,21 @@ public class Sheep implements Animal {
         setInventoryCount();
         life = 13;
     }
+    /**
+     * generates a random number between input and 0.
+     * @param chance top bound for random number
+     * @return int
+     */
 
     public int getRandomCount(int chance) {
         Random random = new Random();
         return random.nextInt(chance);
 
     }
+    /**
+     * //checks to see if they're old
+     * enough to produce product, and only produces every 2 days.
+     */
 
     public void setInventoryCount() {
         if (life > 2 && this.life % 2 == 0) { //checks to see if they're old enough

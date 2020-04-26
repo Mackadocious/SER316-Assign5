@@ -2,13 +2,31 @@ package fish;
 
 import java.util.Random;
 
+/**
+ * The type Tuna.
+ */
 public class Tuna implements Fish {
+    /**
+     * The Type.
+     */
     final String type = "Tuna";
+    /**
+     * The Typeproduct t.
+     */
     final String typeproductT = "Tuna Caviar";
+    /**
+     * The Diseased.
+     */
     boolean diseased = false;
+    /**
+     * The Tuna caviar.
+     */
     int tunaCaviar = 0;
     private int life;
 
+    /**
+     * Instantiates a new Tuna.
+     */
     public Tuna() {
         setInventoryCount();
         life = 13;
@@ -16,6 +34,11 @@ public class Tuna implements Fish {
 
     @Override
 
+    /**
+     * generates a random number between input and 0.
+     * @param chance top bound for random number
+     * @return int
+     */
 
     public int getRandomCount(int chance) {
         Random random = new Random();
@@ -23,8 +46,10 @@ public class Tuna implements Fish {
 
     }
 
-    //checks to see if they're old enough to
-    // produce product, and only produces every 3 days.
+    /**
+     * //checks to see if they're old
+     * enough to produce product, and only produces every 3 days.
+     */
 
     public void setInventoryCount() {
         if (life > 3 && this.life % 2 == 0) {
