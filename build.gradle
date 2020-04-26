@@ -1,28 +1,44 @@
  plugins {
     id "com.github.spotbugs" version "3.0.0"
    id "checkstyle"
+     id 'jacoco'
  }
 
 apply plugin: 'application'
 apply plugin: 'jacoco'
 
 
-mainClassName = 'main.java.Main'
+mainClassName = 'logic.Main'
+
 
 
 
 repositories {
     jcenter()
 }
-
+ run{
+     standardInput = System.in
+ }
 
 dependencies {
     compile 'junit:junit:4.12'
     compile files('cls/')
     implementation 'junit:junit:4.12'
+
 }
 
 
+
+ sourceSets {
+     main {
+         java {
+             srcDirs = ['src/main/java/']
+         }
+         resources {
+             srcDirs = ['src/main/resources']
+         }
+     }
+ }
 
 
  apply plugin: 'checkstyle'
@@ -43,10 +59,12 @@ dependencies {
  }
 
 
-
  tasks.withType(com.github.spotbugs.SpotBugsTask) {
-   reports {
-     xml.enabled = false
-     html.enabled = true
-   }
+     reports {
+         xml.enabled = false
+         html.enabled = true
+     }
+
+
  }
+

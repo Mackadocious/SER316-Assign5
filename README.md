@@ -1,7 +1,7 @@
 Design Pattern Plans:
 
 Because the types of animals will all be very similar classes I plan to 
-use the Compolsite design pattern to group the animal objects into a single
+use the composite design pattern to group the animal objects into a single
 object. 
 
 I plan to use the builder pattern to create farms and assign different attributes to each farm.
