@@ -134,7 +134,7 @@ public class FishFarm implements Farm, FishSubject, FarmObserver, PredatorObserv
     public void addFish() { //creates a random animal and registers with the observer.
 
         Random random = new Random();
-        int chance = random.nextInt(2);
+        int chance = random.nextInt(3);
 
         Fish animal = factory.createFish(chance);
         fishes.add(animal);
@@ -222,7 +222,7 @@ public class FishFarm implements Farm, FishSubject, FarmObserver, PredatorObserv
             for (int i = 0; i < fishes.size(); i++) {
                 if (fishes.get(i).getType().equalsIgnoreCase("Salmon")) {
                     salmonCount++;
-                } else if (fishes.get(i).getType().equalsIgnoreCase("Horse")) {
+                } else if (fishes.get(i).getType().equalsIgnoreCase("Cod")) {
                     codCount++;
                 } else {
                     tunaCount++;

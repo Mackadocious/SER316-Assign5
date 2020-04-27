@@ -137,7 +137,7 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
     public void addAnimal() { //creates a random animal and registers with the observer.
 
         Random random = new Random();
-        int chance = random.nextInt(2);
+        int chance = random.nextInt(3);
 
         Animal animal = factory.createAnimal(chance);
         animals.add(animal);

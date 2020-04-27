@@ -133,7 +133,7 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
     public void addCrops() { //creates random crops and registers with the observer.
 
         Random random = new Random();
-        int chance = random.nextInt(2);
+        int chance = random.nextInt(3);
 
         Crops crop = factory.createCrops(chance);
         crops.add(crop);

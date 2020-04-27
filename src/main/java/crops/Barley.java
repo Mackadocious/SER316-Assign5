@@ -14,6 +14,9 @@ public class Barley implements Crops {
      * The Product.
      */
     static final String product = "barley bails";
+
+
+
     /**
      * The Diseased.
      */
@@ -52,7 +55,7 @@ public class Barley implements Crops {
      */
 
     public void setInventoryCount() {
-        if (life > 3 && this.life % 2 == 0) {
+        if (life > 3 && this.life % 3 == 0) {
             this.barleyBails += getRandomCount(20);
         }
     }
@@ -110,5 +113,16 @@ public class Barley implements Crops {
 
         this.barleyBails += random.nextInt(30);
         System.out.println(this.type + "inventory: " + this.getInventory());
+    }
+    public void setDiseased(boolean diseased) {
+        this.diseased = diseased;
+    }
+
+    public void setBarleyBails(int barleyBails) {
+        this.barleyBails = barleyBails;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
     }
 }

@@ -14,6 +14,9 @@ public class Wheat implements Crops {
      * The Product.
      */
     static final String product = "Wheat bails";
+
+
+
     /**
      * The Diseased.
      */
@@ -21,7 +24,7 @@ public class Wheat implements Crops {
     /**
      * The Wheat bails.
      */
-    int wheatBails = 0;
+    public int wheatBails = 0;
     private int life;
 
     /**
@@ -51,7 +54,7 @@ public class Wheat implements Crops {
      */
 
     public void setInventoryCount() {
-        if (life > 3 && this.life % 2 == 0) { //checks to see if they're old
+        if (life > 3 && this.life % 3 == 0) { //checks to see if they're old
             // enough to produce product, and only produces every 3 days.
             this.wheatBails += getRandomCount(20);
         }
@@ -110,5 +113,17 @@ public class Wheat implements Crops {
 
         this.wheatBails += random.nextInt(30);
         System.out.println(this.type + "inventory: " + this.getInventory());
+    }
+
+    public void setDiseased(boolean diseased) {
+        this.diseased = diseased;
+    }
+
+    public void setWheatBails(int wheatBails) {
+        this.wheatBails = wheatBails;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
     }
 }
