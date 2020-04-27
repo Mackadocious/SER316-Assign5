@@ -15,9 +15,7 @@ public class Sheep implements Animal {
      */
     static final String product = "Wool";
 
-    public void setSick(boolean sick) {
-        this.sick = sick;
-    }
+
 
     public void setWool(int wool) {
         this.wool = wool;

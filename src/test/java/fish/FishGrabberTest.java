@@ -5,7 +5,6 @@ import static junit.framework.TestCase.assertTrue;
 
 import java.util.ArrayList;
 
-import fish.FishGrabber;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -89,7 +89,8 @@ public class SalmonTest {
     public void testAddToInventory() {
         int startingInv = salmon.getInventory();
         salmon.addToInventory();
-        assertTrue(salmon.getInventory() >= startingInv && salmon.getInventory() < startingInv + 29);
+        assertTrue(salmon.getInventory()
+                >= startingInv && salmon.getInventory() < startingInv + 29);
     }
 
     @Test

@@ -119,9 +119,6 @@ public class Horse implements Animal {
         this.life = life;
     }
 
-    public void setSick(boolean sick) {
-        this.sick = sick;
-    }
 
     public void setStamina(int stamina) {
         this.stamina = stamina;

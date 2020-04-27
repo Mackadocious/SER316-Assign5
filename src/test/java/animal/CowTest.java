@@ -99,7 +99,7 @@ public class CowTest {
 
     @Test
     public void testSetSick1() {
-        cow.setSick(true);
+        cow.setSick();
         assertTrue(cow.getSick());
     }
 

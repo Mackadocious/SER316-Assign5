@@ -213,8 +213,11 @@ public class AnimalFarm implements Farm, AnimalSubject, FarmObserver, PredatorOb
             notifyOfSick();
         }
     }
-    //creates babies between two animals of the same type based on probability
 
+
+    /**
+     * creates babies between two animals of the same type based on probability.
+     */
     public void checkForBabies() {
         Animal tempAnimal;
         int cowCount = 0;

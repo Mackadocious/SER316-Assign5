@@ -90,10 +90,9 @@ public class SheepTest {
 
     @Test
     public void testSetSick1() {
-        sheep.setSick(true);
+        sheep.setSick();
         assertTrue(sheep.getSick() == true);
-        sheep.setSick(false);
-        assertFalse(sheep.getSick() == true);
+
     }
 
     @Test

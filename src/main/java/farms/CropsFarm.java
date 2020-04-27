@@ -210,8 +210,10 @@ public class CropsFarm implements Farm, CropsSubject, FarmObserver, PredatorObse
             notifyOfSick();
         }
     }
-    //creates new fields of crops of the same type based on probability
 
+    /**
+     * creates new fields of crops of the same type based on probability.
+     */
     public void checkForBabies() {
         Crops tempCrops;
         int barleyCount = 0;

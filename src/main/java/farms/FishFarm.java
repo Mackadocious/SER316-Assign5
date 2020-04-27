@@ -211,6 +211,9 @@ public class FishFarm implements Farm, FishSubject, FarmObserver, PredatorObserv
         }
     }
 
+    /**
+     * Checks for fish that can lay eggs.
+     */
     public void checkForBabies() { //creates eggs between two fish
         // of the same type based on probability
         Fish tempFish;
@@ -487,6 +490,7 @@ public class FishFarm implements Farm, FishSubject, FarmObserver, PredatorObserv
         }
 
     }
+
     public void setFishesSize(int fishesSize) {
         this.fishesSize = fishesSize;
     }

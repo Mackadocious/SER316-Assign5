@@ -23,9 +23,6 @@ public class Cow implements Animal {
      */
     int milk = 0;
 
-    public void setSick(boolean sick) {
-        this.sick = sick;
-    }
 
     public void setMilk(int milk) {
         this.milk = milk;
@@ -91,6 +88,9 @@ public class Cow implements Animal {
     }
 
 
+    /**
+     * Sets sick.
+     */
     @Override
     public void setSick() {
         this.sick = true;

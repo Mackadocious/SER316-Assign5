@@ -114,9 +114,7 @@ public class Barley implements Crops {
         this.barleyBails += random.nextInt(30);
         System.out.println(this.type + "inventory: " + this.getInventory());
     }
-    public void setDiseased(boolean diseased) {
-        this.diseased = diseased;
-    }
+
 
     public void setBarleyBails(int barleyBails) {
         this.barleyBails = barleyBails;

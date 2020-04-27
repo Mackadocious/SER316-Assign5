@@ -1,12 +1,14 @@
 package farms;
 
-import crops.Crops;
+import static junit.framework.TestCase.assertFalse;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
-public class FarmGrabberTest{
+
+
+public class FarmGrabberTest {
     AnimalFarm animalFarm;
     FarmGrabber grabber;
 
@@ -28,9 +30,7 @@ public class FarmGrabberTest{
         assertFalse(currency == animalFarm.getCurrency());
     }
 
-    @Test
-    public void unregister() {
-    }
+
 
 
 }

@@ -14,6 +14,10 @@ public class BarleyTest {
     Barley barley;
     CropsGrabber grabber;
 
+    /**
+     * Barley Test.
+     * @throws Exception exception thrown
+     */
     @Before
     public void setUp() throws Exception {
         grabber = new CropsGrabber();
@@ -24,7 +28,7 @@ public class BarleyTest {
 
     @Test
     public void testGetRandomCount() {
-        for(int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; i++) {
             grabber.notifyOfWell();
         }
         int result = barley.getRandomCount(3);
@@ -92,7 +96,8 @@ public class BarleyTest {
     public void testAddToInventory() {
         int startingInv = barley.getInventory();
         barley.addToInventory();
-        assertTrue(barley.getInventory() >= startingInv && barley.getInventory() < startingInv + 30);
+        assertTrue(barley.getInventory()
+                >= startingInv && barley.getInventory() < startingInv + 30);
     }
 
 

@@ -103,7 +103,7 @@ public class HorseTest {
 
     @Test
     public void testSetSick1() {
-        horse.setSick(true);
+        horse.setSick();
         assertTrue(horse.getSick());
     }
 

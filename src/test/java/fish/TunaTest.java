@@ -89,7 +89,8 @@ public class TunaTest {
     public void testAddToInventory() {
         int startingInv = tuna.getInventory();
         tuna.addToInventory();
-        assertTrue(tuna.getInventory() >= startingInv && tuna.getInventory() < startingInv + 29);
+        assertTrue(tuna.getInventory()
+                >= startingInv && tuna.getInventory() < startingInv + 29);
     }
 
     @Test
